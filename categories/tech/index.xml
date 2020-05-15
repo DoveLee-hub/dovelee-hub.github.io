@@ -12,12 +12,21 @@
     
     
     <item>
-      <title>Markdown学习笔记</title>
+      <title>JavaWeb_Coding</title>
+      <link>https://dovelee-hub.github.io/post/javaweb/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dovelee-hub.github.io/post/javaweb/</guid>
+      <description>Java网络编程 1.1 概述 什么是计算机网络 ​ 计算机网络是指将地理位置不同的具有独立功能的多台计算机及外部设备，通过通信线路连接起来，在网络操作系</description>
+    </item>
+    
+    <item>
+      <title>Markdown_Learning</title>
       <link>https://dovelee-hub.github.io/post/markdown_learn/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dovelee-hub.github.io/post/markdown_learn/</guid>
-      <description>Markdown学习 常用快捷键 标题 一级标题 # 标题 二级标题则为两个## 三级到六级同理 ###字体 ** 内容 ** 则为粗体 如 **Hello world** * 内容 * 则为斜体 如*Hel</description>
+      <description>Java网络编程 1.1 概述 什么是计算机网络 计算机网络是指将地理位置不同的具有独立功能的多台计算机及外部设备，通过通信线路连接起来，在网络操作系统</description>
     </item>
     
   </channel>
