@@ -172,7 +172,7 @@
                                  &#34;Zhi Li&#34;
                          
                         on 
-                        Friday, May 15, 2020
+                        Saturday, May 16, 2020
                         
                         
                         
@@ -208,6 +208,10 @@
         <li><a href="#12-网络通信的要素">1.2 网络通信的要素</a></li>
         <li><a href="#13-ip">1.3 IP</a></li>
         <li><a href="#14-端口">1.4 端口</a></li>
+        <li><a href="#15-通信协议">1.5 通信协议</a></li>
+        <li><a href="#16-tcp">1.6 TCP</a></li>
+        <li><a href="#17-udp">1.7 UDP</a></li>
+        <li><a href="#java补充知识">*JAVA补充知识</a></li>
       </ul>
     </li>
   </ul>
@@ -299,10 +303,11 @@ www<span style="color:#ff79c6">.</span><span style="color:#50fa7b">baidu</span><
 220<span style="color:#ff79c6">.</span><span style="color:#50fa7b">181</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">38</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">149</span>
 www<span style="color:#ff79c6">.</span><span style="color:#50fa7b">baidu</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">com</span>
 <span style="color:#ff79c6">[</span>B@1fb3ebeb
+  
 </code></pre></div></li>
 </ul>
 <h2 id="14-端口">1.4 端口</h2>
-<p>###端口相关知识</p>
+<h3 id="端口相关知识">端口相关知识</h3>
 <p>端口表示计算机上的一个程序的进程：</p>
 <ul>
 <li>
@@ -360,14 +365,14 @@ tasklist|findstr<span style="color:#f1fa8c">&#34;端口号&#34;</span> <span sty
         System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>sockeraddress<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getPort</span><span style="color:#ff79c6">());</span>
     <span style="color:#ff79c6">}</span>
 <span style="color:#ff79c6">}</span>
-输出
+#输出
 <span style="color:#ff79c6">/</span>127<span style="color:#ff79c6">.</span><span style="color:#50fa7b">0</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">0</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">1</span><span style="color:#ff79c6">:</span>8080
 localhost<span style="color:#ff79c6">/</span>127<span style="color:#ff79c6">.</span><span style="color:#50fa7b">0</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">0</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">1</span><span style="color:#ff79c6">:</span>8080
 <span style="color:#ff79c6">/</span>127<span style="color:#ff79c6">.</span><span style="color:#50fa7b">0</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">0</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">1</span>
 localhost
 8080
-</code></pre></div><p>##1.5 通信协议</p>
-<p>###通信协议相关知识</p>
+</code></pre></div><h2 id="15-通信协议">1.5 通信协议</h2>
+<h3 id="通信协议相关知识">通信协议相关知识</h3>
 <p>协议：约定，就好比我们现在说的是普通话</p>
 <p>网络通信协议：速率，传输码率，代码结构，传输控制等等</p>
 <p>问题：非常复杂</p>
@@ -400,8 +405,6 @@ B：你真的真的要走了吗？
 A：我真的要走了
 </code></pre></li>
 </ul>
-<p><img src="https://user-images.githubusercontent.com/58317994/82074013-add46100-970c-11ea-8964-d209bfa4a799.png" alt="TCP三次握手"></p>
-<p><img src="https://user-images.githubusercontent.com/58317994/82074054-c17fc780-970c-11ea-91ee-f3bc2fd85f79.png" alt="TCP四次挥手"></p>
 <p><img src="https://user-images.githubusercontent.com/58317994/82074376-40750000-970d-11ea-94ec-aad769d78482.PNG" alt="为什么是三次握手"></p>
 <ul>
 <li>
@@ -422,7 +425,663 @@ A：我真的要走了
 </ul>
 </li>
 </ul>
+<h2 id="16-tcp">1.6 TCP</h2>
+<h3 id="客户端">客户端</h3>
+<ol>
+<li>
+<p>连接服务器Socket</p>
+</li>
+<li>
+<p>发送消息</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.IOException<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.io.OutputStream<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.Socket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.InetAddress<span style="color:#ff79c6">;</span>
 
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">client_side</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        InetAddress ServeIP<span style="color:#ff79c6">=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+        OutputStream os<span style="color:#ff79c6">=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+        <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#6272a4">//要知道服务器的地址，端口号
+</span><span style="color:#6272a4"></span>            ServeIP <span style="color:#ff79c6">=</span> InetAddress<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getByName</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;127.0.0.1&#34;</span><span style="color:#ff79c6">);</span><span style="color:#6272a4">//localhost
+</span><span style="color:#6272a4"></span>            <span style="color:#8be9fd">int</span> port <span style="color:#ff79c6">=</span> 9999<span style="color:#ff79c6">;</span><span style="color:#6272a4">//随便写个端口号
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">//创建socket连接
+</span><span style="color:#6272a4"></span>            Socket socket <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Socket<span style="color:#ff79c6">(</span>ServeIP<span style="color:#ff79c6">,</span>port<span style="color:#ff79c6">);</span>
+            <span style="color:#6272a4">//客户端输出
+</span><span style="color:#6272a4"></span>            os <span style="color:#ff79c6">=</span> socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getOutputStream</span><span style="color:#ff79c6">();</span>
+            os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;让我们一起学习JAVAWEB编程吧！&#34;</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">());</span>
+        <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">}</span><span style="color:#ff79c6">finally</span> <span style="color:#ff79c6">{</span>
+          	<span style="color:#6272a4">//先打开的后关闭
+</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">if</span><span style="color:#ff79c6">(</span>os<span style="color:#ff79c6">!=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">){</span>
+                <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+                    os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+                <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                    e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+                <span style="color:#ff79c6">}</span>
+            <span style="color:#ff79c6">}</span>
+            <span style="color:#ff79c6">if</span><span style="color:#ff79c6">(</span>ServeIP<span style="color:#ff79c6">!=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">){</span>
+                <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+                    os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+                <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                    e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+                <span style="color:#ff79c6">}</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span>
+
+
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><h3 id="服务器">服务器</h3>
+<ol>
+<li>建立服务的端口ServerSocket</li>
+<li>等待用户的连接 accept</li>
+<li>接受用的信息</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.ByteArrayOutputStream<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.io.IOException<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.io.InputStream<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.ServerSocket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.Socket<span style="color:#ff79c6">;</span>
+
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">serve_side</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#6272a4">//提升作用域，为Finally作准备
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        ServerSocket Serversocket1<span style="color:#ff79c6">=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+        Socket socket<span style="color:#ff79c6">=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+        InputStream is<span style="color:#ff79c6">=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+        ByteArrayOutputStream baos<span style="color:#ff79c6">=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+        <span style="color:#ff79c6">{</span>
+            <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+                <span style="color:#6272a4">//我得有个地址
+</span><span style="color:#6272a4"></span>                Serversocket1 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ServerSocket<span style="color:#ff79c6">(</span>9999<span style="color:#ff79c6">);</span>
+                <span style="color:#6272a4">//等待客户端发送
+</span><span style="color:#6272a4"></span>                socket<span style="color:#ff79c6">=</span>Serversocket1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">accept</span><span style="color:#ff79c6">();</span>
+              	<span style="color:#6272a4">//这里的socket就是客户端中的socket
+</span><span style="color:#6272a4"></span>                <span style="color:#6272a4">//读取客户端消息
+</span><span style="color:#6272a4"></span>                is <span style="color:#ff79c6">=</span> socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getInputStream</span><span style="color:#ff79c6">();</span>
+                <span style="color:#6272a4">//管道流
+</span><span style="color:#6272a4"></span>                baos <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ByteArrayOutputStream<span style="color:#ff79c6">();</span>
+                <span style="color:#8be9fd">byte</span> buffer<span style="color:#ff79c6">[]</span> <span style="color:#ff79c6">=</span><span style="color:#ff79c6">new</span> <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[</span>1024<span style="color:#ff79c6">];</span>
+                <span style="color:#8be9fd">int</span> len<span style="color:#ff79c6">;</span>
+                <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">((</span>len<span style="color:#ff79c6">=</span>is<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">))!=-</span>1<span style="color:#ff79c6">){</span>
+                    baos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">,</span>0<span style="color:#ff79c6">,</span>len<span style="color:#ff79c6">);</span>
+                <span style="color:#ff79c6">}</span>
+                System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>baos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">());</span>
+            <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+            <span style="color:#ff79c6">}</span><span style="color:#ff79c6">finally</span> <span style="color:#ff79c6">{</span>
+                <span style="color:#6272a4">//先打开的后关闭
+</span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">if</span><span style="color:#ff79c6">(</span>baos<span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">){</span>
+                    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+                        baos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+                    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                        e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+                    <span style="color:#ff79c6">}</span>
+                <span style="color:#ff79c6">}</span>
+                <span style="color:#ff79c6">if</span><span style="color:#ff79c6">(</span>is<span style="color:#ff79c6">!=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">){</span>
+                    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+                        is<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+                    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                        e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+                    <span style="color:#ff79c6">}</span>
+                <span style="color:#ff79c6">}</span>
+                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>socket<span style="color:#ff79c6">!=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">){</span>
+                    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+                        socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+                    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                        e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+                    <span style="color:#ff79c6">}</span>
+                <span style="color:#ff79c6">}</span>
+                <span style="color:#ff79c6">if</span><span style="color:#ff79c6">(</span>Serversocket1<span style="color:#ff79c6">!=</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">){</span>
+                    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+                        Serversocket1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+                    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                        e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+                    <span style="color:#ff79c6">}</span>
+                <span style="color:#ff79c6">}</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span>
+    <span style="color:#ff79c6">}</span>
+
+<span style="color:#ff79c6">}</span>
+运行结果
+  让我们一起学习JAVAWEB编程吧！
+</code></pre></div><h3 id="范例tcp文件传输">范例：TCP文件传输</h3>
+<p>客户端</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.*<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.InetAddress<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.Socket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.UnknownHostException<span style="color:#ff79c6">;</span>
+
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">client_side_file</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">//1.创建socket连接
+</span><span style="color:#6272a4"></span>        Socket socket1 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Socket<span style="color:#ff79c6">(</span>InetAddress<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getByName</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;127.0.0.1&#34;</span><span style="color:#ff79c6">),</span>9000<span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">//2.创建一个输出流
+</span><span style="color:#6272a4"></span>        OutputStream os <span style="color:#ff79c6">=</span> socket1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getOutputStream</span><span style="color:#ff79c6">();</span>
+        <span style="color:#6272a4">//3.读取文件
+</span><span style="color:#6272a4"></span>        FileInputStream fis <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileInputStream<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> File<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;photo.png&#34;</span><span style="color:#ff79c6">));</span><span style="color:#6272a4">//文件放到包文件夹下
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">//4.写出文件
+</span><span style="color:#6272a4"></span>        <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> buffer <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[</span>1024<span style="color:#ff79c6">];</span>
+        <span style="color:#8be9fd">int</span> len<span style="color:#ff79c6">;</span>
+        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">((</span>len<span style="color:#ff79c6">=</span>fis<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">))!=-</span>1<span style="color:#ff79c6">){</span>
+            os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">,</span>0<span style="color:#ff79c6">,</span>len<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#6272a4">//通知服务器，我已结束了
+</span><span style="color:#6272a4"></span>        socket1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">shutdownOutput</span><span style="color:#ff79c6">();</span>
+        <span style="color:#6272a4">//结束IO流，但不断开网络连接
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">//如果不加这句，服务器和客户端将一直处于僵持状态，因为，服务器端一直在等待客户端发来的消息，但是一直不知道客户端什么时候会结束发送消息，因为，客户端并没有给用户发过来一个结束的标志，所以，客户端将一直处于等待的状态，所以将不会再给客户端发消息，即执行不下去了
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">//那为什么上一篇中client_side的文字传输没加这句呢？
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">//因为客户端发送完文字之后就直接close了，所以socket也close了，相当于shutdown了，服务器端也就停止接收了
+</span><span style="color:#6272a4"></span>
+
+
+        <span style="color:#6272a4">//确定服务器接受完毕，在能断开连接
+</span><span style="color:#6272a4"></span>        InputStream is2 <span style="color:#ff79c6">=</span> socket1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getInputStream</span><span style="color:#ff79c6">();</span>
+        ByteArrayOutputStream baos <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ByteArrayOutputStream<span style="color:#ff79c6">();</span>
+
+        <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> buffer2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[</span>1024<span style="color:#ff79c6">];</span>
+        <span style="color:#8be9fd">int</span> len2<span style="color:#ff79c6">;</span>
+        <span style="color:#ff79c6">while</span><span style="color:#ff79c6">((</span>len2<span style="color:#ff79c6">=</span>is2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">(</span>buffer2<span style="color:#ff79c6">))!=-</span>1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            baos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span>buffer2<span style="color:#ff79c6">,</span> 0<span style="color:#ff79c6">,</span>len2<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span>
+        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>baos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">());</span>
+
+        <span style="color:#6272a4">//5.关闭资源
+</span><span style="color:#6272a4"></span>        baos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        is2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        fis<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        socket1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>服务器端</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.*<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.ServerSocket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.Socket<span style="color:#ff79c6">;</span>
+
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">serve_side_file</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">//1.创建服务
+</span><span style="color:#6272a4"></span>        ServerSocket serverSocket <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ServerSocket<span style="color:#ff79c6">(</span>9000<span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">//2.监听客户端的连接
+</span><span style="color:#6272a4"></span>        Socket socket1 <span style="color:#ff79c6">=</span> serverSocket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">accept</span><span style="color:#ff79c6">();</span>
+        <span style="color:#6272a4">//3.获取输入流
+</span><span style="color:#6272a4"></span>        InputStream is <span style="color:#ff79c6">=</span> socket1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getInputStream</span><span style="color:#ff79c6">();</span>
+        <span style="color:#6272a4">//4.文件输出
+</span><span style="color:#6272a4"></span>        FileOutputStream fos <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileOutputStream<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> File<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;receive.jpg&#34;</span><span style="color:#ff79c6">));</span>
+        <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> buffer <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[</span>1024<span style="color:#ff79c6">];</span><span style="color:#6272a4">//建立缓冲区
+</span><span style="color:#6272a4"></span>        <span style="color:#8be9fd">int</span> len<span style="color:#ff79c6">;</span>
+        <span style="color:#ff79c6">while</span><span style="color:#ff79c6">((</span>len<span style="color:#ff79c6">=</span>is<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">))!=-</span>1<span style="color:#ff79c6">){</span>
+            fos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">,</span>0<span style="color:#ff79c6">,</span>len<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#6272a4">//通知客户端接受完毕
+</span><span style="color:#6272a4"></span>        OutputStream os <span style="color:#ff79c6">=</span> socket1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getOutputStream</span><span style="color:#ff79c6">();</span>
+        os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;我接受完毕了，你可以断开了&#34;</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">());</span>
+
+        <span style="color:#6272a4">//关闭资源
+</span><span style="color:#6272a4"></span>        fos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        is<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        socket1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        serverSocket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><h3 id="tomcat">Tomcat</h3>
+<p>服务端</p>
+<ul>
+<li>自定义 S</li>
+<li>Tomecat服务器 S</li>
+</ul>
+<p>客户端</p>
+<ul>
+<li>自定义 C</li>
+<li>浏览器 B</li>
+</ul>
+<h2 id="17-udp">1.7 UDP</h2>
+<p>发短信：不需要建立连接，需要知道地址和端口</p>
+<h3 id="客户端-1">客户端</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.net.DatagramPacket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.DatagramSocket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.InetAddress<span style="color:#ff79c6">;</span>
+
+
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">UDP_client</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">//1.建立一个Socket
+</span><span style="color:#6272a4"></span>        DatagramSocket socket <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DatagramSocket<span style="color:#ff79c6">();</span>
+
+        <span style="color:#6272a4">//2.接收端地址
+</span><span style="color:#6272a4"></span>        InetAddress localhost <span style="color:#ff79c6">=</span> InetAddress<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getLocalHost</span><span style="color:#ff79c6">();</span>
+        <span style="color:#8be9fd">int</span> port <span style="color:#ff79c6">=</span> 9000<span style="color:#ff79c6">;</span>
+
+        <span style="color:#6272a4">//3.建个包
+</span><span style="color:#6272a4"></span>        String msg <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;你好啊，服务器！&#34;</span><span style="color:#ff79c6">);</span>
+        DatagramPacket packet <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DatagramPacket<span style="color:#ff79c6">(</span>msg<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">(),</span>0<span style="color:#ff79c6">,</span>msg<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">,</span>localhost<span style="color:#ff79c6">,</span>port<span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">//数据，起始位置，结束位置，接收端地址，接收端端口
+</span><span style="color:#6272a4"></span>
+        <span style="color:#6272a4">//4.发送包
+</span><span style="color:#6272a4"></span>        socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">send</span><span style="color:#ff79c6">(</span>packet<span style="color:#ff79c6">);</span>
+
+        <span style="color:#6272a4">//5.关闭资源
+</span><span style="color:#6272a4"></span>        socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><h3 id="服务器-1">服务器</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.net.DatagramPacket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.DatagramSocket<span style="color:#ff79c6">;</span>
+
+<span style="color:#6272a4">//仍然需要等待客户端连接
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">UDP_serve</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">//1.开放端口
+</span><span style="color:#6272a4"></span>        DatagramSocket socket <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DatagramSocket<span style="color:#ff79c6">(</span>9000<span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">//2.接收数据包
+</span><span style="color:#6272a4"></span>        <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> buffer <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[</span>1024<span style="color:#ff79c6">];</span><span style="color:#6272a4">//建立缓冲区
+</span><span style="color:#6272a4"></span>        DatagramPacket packet <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DatagramPacket<span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">,</span>0<span style="color:#ff79c6">,</span>buffer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">);</span>
+
+        socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">receive</span><span style="color:#ff79c6">(</span>packet<span style="color:#ff79c6">);</span><span style="color:#6272a4">//阻塞接收
+</span><span style="color:#6272a4"></span>
+        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;From &#34;</span><span style="color:#ff79c6">+</span>packet<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getAddress</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">getHostAddress</span><span style="color:#ff79c6">());</span>
+        <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span>packet<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getData</span><span style="color:#ff79c6">(),</span>0<span style="color:#ff79c6">,</span>packet<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getLength</span><span style="color:#ff79c6">());</span>
+
+        <span style="color:#6272a4">//关闭连接
+</span><span style="color:#6272a4"></span>        socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+
+<span style="color:#ff79c6">}</span>
+</code></pre></div><h2 id="java补充知识">*JAVA补充知识</h2>
+<h3 id="java小知识">Java小知识</h3>
+<ul>
+<li>psvm可自动生成public static void main（psvm为这四个首字母）</li>
+<li>.sout可自动生成System.out.println();</li>
+<li>Mac下查看idea中JAVA类及方法的具体情况 command+左键 在左侧structure可查看构造方法等</li>
+<li>control+j可以查看方法的具体说明</li>
+</ul>
+<h3 id="异常">异常</h3>
+<ul>
+<li>Try Catch：Catch中要先catch子类异常如：IOException，再catch父类异常如：  Throwable。</li>
+<li>Finally：一定会执行Finally中的代码块</li>
+<li>Throw：主动抛出异常，常用在方法体内</li>
+<li>Throws：假设在方法中处理不了这个异常。则在方法上抛出，遇到异常则跳过并继续执行方法代码。</li>
+<li>快捷键 command+option+T 自动添加Try Catch</li>
+</ul>
+<h3 id="java-流stream文件file和io">Java 流(Stream)、文件(File)和IO</h3>
+<blockquote>
+<p>本节参考牛客网JAVA教程</p>
+</blockquote>
+<p>Java.io 包几乎包含了所有操作输入、输出需要的类。所有这些流类代表了输入源和输出目标。</p>
+<p>Java.io 包中的流支持很多种格式，比如：基本类型、对象、本地化字符集等等。</p>
+<p>一个流可以理解为一个数据的序列。输入流表示从一个源读取数据，输出流表示向一个目标写数据。</p>
+<p>Java 为 I/O 提供了强大的而灵活的支持，使其更广泛地应用到文件传输和网络编程中。</p>
+<p>但本节讲述最基本的和流与 I/O 相关的功能。我们将通过一个个例子来学习这些功能。</p>
+<h4 id="读取控制台输入">读取控制台输入</h4>
+<p>Java 的控制台输入由 System.in 完成。</p>
+<p>为了获得一个绑定到控制台的字符流，你可以把 System.in 包装在一个 BufferedReader 对象中来创建一个字符流。</p>
+<p>下面是创建 BufferedReader 的基本语法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">BufferedReader br <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> BufferedReader<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span>
+                      InputStreamReader<span style="color:#ff79c6">(</span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">in</span><span style="color:#ff79c6">));</span>
+</code></pre></div><p>BufferedReader 对象创建后，我们便可以使用 read() 方法从控制台读取一个字符，或者用 readLine() 方法读取一个字符串。</p>
+<h4 id="从控制台读取多字符输入">从控制台读取多字符输入</h4>
+<p>从 BufferedReader 对象读取一个字符要使用 read() 方法，它的语法如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">read</span><span style="color:#ff79c6">(</span> <span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException
+</code></pre></div><p>每次调用 read() 方法，它从输入流读取一个字符并把该字符作为整数值返回。 当流结束的时候返回 -1。该方法抛出 IOException。</p>
+<p>下面的程序示范了用 read() 方法从控制台不断读取字符直到用户输入 &ldquo;q&rdquo;。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#6272a4">//使用 BufferedReader 在控制台读取字符
+</span><span style="color:#6272a4"></span> 
+<span style="color:#ff79c6">import</span> java.io.*<span style="color:#ff79c6">;</span>
+ 
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">BRRead</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String args<span style="color:#ff79c6">[])</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+        <span style="color:#8be9fd">char</span> c<span style="color:#ff79c6">;</span>
+        <span style="color:#6272a4">// 使用 System.in 创建 BufferedReader
+</span><span style="color:#6272a4"></span>        BufferedReader br <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> BufferedReader<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> InputStreamReader<span style="color:#ff79c6">(</span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">in</span><span style="color:#ff79c6">));</span>
+        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;输入字符, 按下 &#39;q&#39; 键退出。&#34;</span><span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">// 读取字符
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">do</span> <span style="color:#ff79c6">{</span>
+            c <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">char</span><span style="color:#ff79c6">)</span> br<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">();</span>
+            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>c<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>c <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#39;q&#39;</span><span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>以上实例编译运行结果如下:</p>
+<pre><code>输入字符, 按下 'q' 键退出。
+helloworld
+h
+e
+l
+l
+o
+w
+o
+r
+l
+d
+
+q
+q
+</code></pre><h4 id="从控制台读取字符串">从控制台读取字符串</h4>
+<p>从标准输入读取一个字符串需要使用 BufferedReader 的 readLine() 方法。</p>
+<p>它的一般格式是：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String <span style="color:#50fa7b">readLine</span><span style="color:#ff79c6">(</span> <span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException
+</code></pre></div><p>下面的程序读取和显示字符行直到你输入了单词&quot;end&rdquo;。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#6272a4">//使用 BufferedReader 在控制台读取字符
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> java.io.*<span style="color:#ff79c6">;</span>
+ 
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">BRReadLines</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String args<span style="color:#ff79c6">[])</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">// 使用 System.in 创建 BufferedReader
+</span><span style="color:#6272a4"></span>        BufferedReader br <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> BufferedReader<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> InputStreamReader<span style="color:#ff79c6">(</span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">in</span><span style="color:#ff79c6">));</span>
+        String str<span style="color:#ff79c6">;</span>
+        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Enter lines of text.&#34;</span><span style="color:#ff79c6">);</span>
+        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Enter &#39;end&#39; to quit.&#34;</span><span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">do</span> <span style="color:#ff79c6">{</span>
+            str <span style="color:#ff79c6">=</span> br<span style="color:#ff79c6">.</span><span style="color:#50fa7b">readLine</span><span style="color:#ff79c6">();</span>
+            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>str<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(!</span>str<span style="color:#ff79c6">.</span><span style="color:#50fa7b">equals</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;end&#34;</span><span style="color:#ff79c6">));</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>以上实例编译运行结果如下:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Enter lines of text<span style="color:#ff79c6">.</span>
+Enter &#39;end&#39; to quit<span style="color:#ff79c6">.</span>
+This is line one
+This is line one
+This is line two
+This is line two
+end
+end
+</code></pre></div><p><em>JDK 5 后的版本我们也可以使用</em> <strong>Java Scanner</strong> <em>类来获取控制台的输入。</em></p>
+<h4 id="控制台输出">控制台输出</h4>
+<p>在此前已经介绍过，控制台的输出由 print( ) 和 println() 完成。这些方法都由类 PrintStream 定义，System.out 是该类对象的一个引用。</p>
+<p>PrintStream 继承了 OutputStream类，并且实现了方法 write()。这样，write() 也可以用来往控制台写操作。</p>
+<p>PrintStream 定义 write() 的最简单格式如下所示：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> byteval<span style="color:#ff79c6">)</span>
+</code></pre></div><p>该方法将 byteval 的低八位字节写到流中。</p>
+<h4 id="实例">实例</h4>
+<p>下面的例子用 write() 把字符 &ldquo;A&rdquo; 和紧跟着的换行符输出到屏幕：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.*<span style="color:#ff79c6">;</span>
+ 
+<span style="color:#6272a4">//演示 System.out.write().
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">WriteDemo</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String args<span style="color:#ff79c6">[])</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#8be9fd">int</span> b<span style="color:#ff79c6">;</span>
+        b <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;A&#39;</span><span style="color:#ff79c6">;</span>
+        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span>b<span style="color:#ff79c6">);</span>
+        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#39;\n&#39;</span><span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>运行以上实例在输出窗口输出 &ldquo;A&rdquo; 字符</p>
+<pre><code>A
+</code></pre><p><strong>注意</strong>:write() 方法不经常使用，因为 print() 和 println() 方法用起来更为方便。</p>
+<h4 id="读写文件">读写文件</h4>
+<p>如前所述，一个流被定义为一个数据序列。输入流用于从源读取数据，输出流用于向目标写数据。</p>
+<p>下图是一个描述输入流和输出流的类层次图。</p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20190917/334190970_1568704928873_B8D2160188B5F259E18A8E608619BFAD" alt="IO"></p>
+<p>下面将要讨论的两个重要的流是 FileInputStream 和 FileOutputStream：</p>
+<h4 id="fileinputstream">FileInputStream</h4>
+<p>该流用于从文件读取数据，它的对象可以用关键字 new 来创建。</p>
+<p>有多种构造方法可用来创建对象。</p>
+<p>可以使用字符串类型的文件名来创建一个输入流对象来读取文件：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">InputStream f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileInputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;C:/java/hello&#34;</span><span style="color:#ff79c6">);</span>
+</code></pre></div><p>也可以使用一个文件对象来创建一个输入流对象来读取文件。我们首先得使用 File() 方法来创建一个文件对象：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">File f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> File<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;C:/java/hello&#34;</span><span style="color:#ff79c6">);</span>
+InputStream out <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileInputStream<span style="color:#ff79c6">(</span>f<span style="color:#ff79c6">);</span>
+</code></pre></div><p>创建了InputStream对象，就可以使用下面的方法来读取流或者进行其他的流操作。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>序号</strong></th>
+<th align="center"><strong>方法及描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center"><strong>public void close() throws IOException{}</strong> 关闭此文件输入流并释放与此流有关的所有系统资源。抛出IOException异常。</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><strong>protected void finalize()throws IOException {}</strong> 这个方法清除与该文件的连接。确保在不再引用文件输入流时调用其 close 方法。抛出IOException异常。</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><strong>public int read(int r)throws IOException{}</strong> 这个方法从 InputStream 对象读取指定字节的数据。返回为整数值。返回下一字节数据，如果已经到结尾则返回-1。</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><strong>public int read(byte[] r) throws IOException{}</strong> 这个方法从输入流读取r.length长度的字节。返回读取的字节数。如果是文件结尾则返回-1。</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><strong>public int available() throws IOException{}</strong> 返回下一次对此输入流调用的方法可以不受阻塞地从此输入流读取的字节数。返回一个整数值。</td>
+</tr>
+</tbody>
+</table>
+<p>除了 InputStream 外，还有一些其他的输入流，更多的细节参考下面链接：</p>
+<ul>
+<li><a href="https://www.nowcoder.com/tutorial/10001/c497a44ef3cd471d832d1c71c7fb6e05">ByteArrayInputStream</a></li>
+<li><a href="https://www.nowcoder.com/tutorial/10001/f07fe21690594078b25a05dc176e6af6">DataInputStream</a></li>
+</ul>
+<h4 id="fileoutputstream">FileOutputStream</h4>
+<p>该类用来创建一个文件并向文件中写数据。</p>
+<p>如果该流在打开文件进行输出前，目标文件不存在，那么该流会创建该文件。</p>
+<p>有两个构造方法可以用来创建 FileOutputStream 对象。</p>
+<p>使用字符串类型的文件名来创建一个输出流对象：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">OutputStream f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileOutputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;C:/java/hello&#34;</span><span style="color:#ff79c6">)</span>
+</code></pre></div><p>也可以使用一个文件对象来创建一个输出流来写文件。我们首先得使用File()方法来创建一个文件对象：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">File f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> File<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;C:/java/hello&#34;</span><span style="color:#ff79c6">);</span>
+OutputStream f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileOutputStream<span style="color:#ff79c6">(</span>f<span style="color:#ff79c6">);</span>
+</code></pre></div><p>创建OutputStream 对象完成后，就可以使用下面的方法来写入流或者进行其他的流操作。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>序号</strong></th>
+<th align="center"><strong>方法及描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center"><strong>public void close() throws IOException{}</strong> 关闭此文件输入流并释放与此流有关的所有系统资源。抛出IOException异常。</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><strong>protected void finalize()throws IOException {}</strong> 这个方法清除与该文件的连接。确保在不再引用文件输入流时调用其 close 方法。抛出IOException异常。</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><strong>public void write(int w)throws IOException{}</strong> 这个方法把指定的字节写到输出流中。</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><strong>public void write(byte[] w)</strong> 把指定数组中w.length长度的字节写到OutputStream中。</td>
+</tr>
+</tbody>
+</table>
+<p>除了OutputStream外，还有一些其他的输出流，更多的细节参考下面链接：</p>
+<ul>
+<li><a href="https://www.nowcoder.com/tutorial/10001/9435b64cbc46481d97ad22c1e8e10dbf">ByteArrayOutputStream</a></li>
+<li><a href="https://www.nowcoder.com/tutorial/10001/ca8d64ea11e940088c6c1001c6cd5655">DataOutputStream</a></li>
+</ul>
+<h4 id="实例-1">实例</h4>
+<p>下面是一个演示 InputStream 和 OutputStream 用法的例子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.*<span style="color:#ff79c6">;</span>
+ 
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">fileStreamTest</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String args<span style="color:#ff79c6">[])</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#8be9fd">byte</span> bWrite<span style="color:#ff79c6">[]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span> 11<span style="color:#ff79c6">,</span> 21<span style="color:#ff79c6">,</span> 3<span style="color:#ff79c6">,</span> 40<span style="color:#ff79c6">,</span> 5 <span style="color:#ff79c6">};</span>
+            OutputStream os <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileOutputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;test.txt&#34;</span><span style="color:#ff79c6">);</span>
+            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> x <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> x <span style="color:#ff79c6">&lt;</span> bWrite<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">;</span> x<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+                os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span>bWrite<span style="color:#ff79c6">[</span>x<span style="color:#ff79c6">]);</span> <span style="color:#6272a4">// writes the bytes
+</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">}</span>
+            os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+ 
+            InputStream is <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileInputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;test.txt&#34;</span><span style="color:#ff79c6">);</span>
+            <span style="color:#8be9fd">int</span> size <span style="color:#ff79c6">=</span> is<span style="color:#ff79c6">.</span><span style="color:#50fa7b">available</span><span style="color:#ff79c6">();</span>
+ 
+            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> size<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+                System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">print</span><span style="color:#ff79c6">((</span><span style="color:#8be9fd">char</span><span style="color:#ff79c6">)</span> is<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;  &#34;</span><span style="color:#ff79c6">);</span>
+            <span style="color:#ff79c6">}</span>
+            is<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">print</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Exception&#34;</span><span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+
+</code></pre></div><p>上面的程序首先创建文件test.txt，并把给定的数字以二进制形式写进该文件，同时输出到控制台上。</p>
+<p>以上代码由于是二进制写入，可能存在乱码，你可以使用以下代码实例来解决乱码问题：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#6272a4">//文件名 :fileStreamTest2.java
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> java.io.*<span style="color:#ff79c6">;</span>
+ 
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">fileStreamTest2</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+ 
+        File f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> File<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;a.txt&#34;</span><span style="color:#ff79c6">);</span>
+        FileOutputStream fop <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileOutputStream<span style="color:#ff79c6">(</span>f<span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">// 构建FileOutputStream对象,文件不存在会自动新建
+</span><span style="color:#6272a4"></span> 
+        OutputStreamWriter writer <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OutputStreamWriter<span style="color:#ff79c6">(</span>fop<span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">// 构建OutputStreamWriter对象,参数可以指定编码,默认为操作系统默认编码,windows上是gbk
+</span><span style="color:#6272a4"></span> 
+        writer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">append</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;中文输入&#34;</span><span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">// 写入到缓冲区
+</span><span style="color:#6272a4"></span> 
+        writer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">append</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;\r\n&#34;</span><span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">// 换行
+</span><span style="color:#6272a4"></span> 
+        writer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">append</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;English&#34;</span><span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">// 刷新缓存冲,写入到文件,如果下面已经没有写入的内容了,直接close也会写入
+</span><span style="color:#6272a4"></span> 
+        writer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        <span style="color:#6272a4">// 关闭写入流,同时会把缓冲区内容写入文件,所以上面的注释掉
+</span><span style="color:#6272a4"></span> 
+        fop<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        <span style="color:#6272a4">// 关闭输出流,释放系统资源
+</span><span style="color:#6272a4"></span> 
+        FileInputStream fip <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileInputStream<span style="color:#ff79c6">(</span>f<span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">// 构建FileInputStream对象
+</span><span style="color:#6272a4"></span> 
+        InputStreamReader reader <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> InputStreamReader<span style="color:#ff79c6">(</span>fip<span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">// 构建InputStreamReader对象,编码与写入相同
+</span><span style="color:#6272a4"></span> 
+        StringBuffer sb <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> StringBuffer<span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>reader<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ready</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+            sb<span style="color:#ff79c6">.</span><span style="color:#50fa7b">append</span><span style="color:#ff79c6">((</span><span style="color:#8be9fd">char</span><span style="color:#ff79c6">)</span> reader<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">());</span>
+            <span style="color:#6272a4">// 转成char加到StringBuffer对象中
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">}</span>
+        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>sb<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">());</span>
+        reader<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        <span style="color:#6272a4">// 关闭读取流
+</span><span style="color:#6272a4"></span> 
+        fip<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        <span style="color:#6272a4">// 关闭输入流,释放系统资源
+</span><span style="color:#6272a4"></span> 
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><h4 id="文件和io">文件和I/O</h4>
+<p>还有一些关于文件和I/O的类，我们也需要知道：</p>
+<ul>
+<li><a href="https://www.nowcoder.com/tutorial/10001/3eb859ec192a4338ab0e3e62276dfc48">File Class(类)</a></li>
+<li><a href="https://www.nowcoder.com/tutorial/10001/d8a2a9b2a0494f1bbe0aca847892de84">FileReader Class(类)</a></li>
+<li><a href="https://www.nowcoder.com/tutorial/10001/ad92bda13b644d478fda1f1e61434b7c">FileWriter Class(类)</a></li>
+</ul>
+<h4 id="java中的目录">Java中的目录</h4>
+<h5 id="创建目录">创建目录：</h5>
+<p>File类中有两个方法可以用来创建文件夹：</p>
+<ul>
+<li>**mkdir( )**方法创建一个文件夹，成功则返回true，失败则返回false。失败表明File对象指定的路径已经存在，或者由于整个路径还不存在，该文件夹不能被创建。</li>
+<li>**mkdirs()**方法创建一个文件夹和它的所有父文件夹。</li>
+</ul>
+<p>下面的例子创建 &ldquo;/tmp/user/java/bin&quot;文件夹：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.File<span style="color:#ff79c6">;</span>
+ 
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">CreateDir</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String args<span style="color:#ff79c6">[])</span> <span style="color:#ff79c6">{</span>
+        String dirname <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;/tmp/user/java/bin&#34;</span><span style="color:#ff79c6">;</span>
+        File d <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> File<span style="color:#ff79c6">(</span>dirname<span style="color:#ff79c6">);</span>
+        <span style="color:#6272a4">// 现在创建目录
+</span><span style="color:#6272a4"></span>        d<span style="color:#ff79c6">.</span><span style="color:#50fa7b">mkdirs</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>编译并执行上面代码来创建目录 &ldquo;/tmp/user/java/bin&rdquo;。</p>
+<p><strong>注意：</strong> Java 在 UNIX 和 Windows 自动按约定分辨文件路径分隔符。如果你在 Windows 版本的 Java 中使用分隔符 (/) ，路径依然能够被正确解析。</p>
+<h5 id="读取目录">读取目录</h5>
+<p>一个目录其实就是一个 File 对象，它包含其他文件和文件夹。</p>
+<p>如果创建一个 File 对象并且它是一个目录，那么调用 isDirectory() 方法会返回 true。</p>
+<p>可以通过调用该对象上的 list() 方法，来提取它包含的文件和文件夹的列表。</p>
+<p>下面展示的例子说明如何使用 list() 方法来检查一个文件夹中包含的内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.File<span style="color:#ff79c6">;</span>
+ 
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">DirList</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String args<span style="color:#ff79c6">[])</span> <span style="color:#ff79c6">{</span>
+        String dirname <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;/tmp&#34;</span><span style="color:#ff79c6">;</span>
+        File f1 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> File<span style="color:#ff79c6">(</span>dirname<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>f1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isDirectory</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;目录 &#34;</span> <span style="color:#ff79c6">+</span> dirname<span style="color:#ff79c6">);</span>
+            String s<span style="color:#ff79c6">[]</span> <span style="color:#ff79c6">=</span> f1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">list</span><span style="color:#ff79c6">();</span>
+            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+                File f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> File<span style="color:#ff79c6">(</span>dirname <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;/&#34;</span> <span style="color:#ff79c6">+</span> s<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]);</span>
+                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>f<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isDirectory</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+                    System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; 是一个目录&#34;</span><span style="color:#ff79c6">);</span>
+                <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+                    System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; 是一个文件&#34;</span><span style="color:#ff79c6">);</span>
+                <span style="color:#ff79c6">}</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>dirname <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; 不是一个目录&#34;</span><span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+
+</code></pre></div><p>以上实例编译运行结果如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">目录 <span style="color:#ff79c6">/</span>tmp
+bin 是一个目录
+lib 是一个目录
+demo 是一个目录
+test<span style="color:#ff79c6">.</span><span style="color:#50fa7b">txt</span> 是一个文件
+README 是一个文件
+index<span style="color:#ff79c6">.</span><span style="color:#50fa7b">html</span> 是一个文件
+include 是一个目录
+</code></pre></div><h5 id="删除目录或文件">删除目录或文件</h5>
+<p>删除文件可以使用 <strong>java.io.File.delete()</strong> 方法。</p>
+<p>以下代码会删除目录 <strong>/tmp/java/</strong>，需要注意的是当删除某一目录时，必须保证该目录下没有其他文件才能正确删除，否则将删除失败。</p>
+<p>测试目录结构：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">/</span>tmp<span style="color:#ff79c6">/</span>java<span style="color:#ff79c6">/</span>
+<span style="color:#ff79c6">|--</span> 1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">log</span>
+<span style="color:#ff79c6">|--</span> test
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.File<span style="color:#ff79c6">;</span>
+ 
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">DeleteFileDemo</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String args<span style="color:#ff79c6">[])</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">// 这里修改为自己的测试目录
+</span><span style="color:#6272a4"></span>        File folder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> File<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/tmp/java/&#34;</span><span style="color:#ff79c6">);</span>
+        deleteFolder<span style="color:#ff79c6">(</span>folder<span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+ 
+    <span style="color:#6272a4">// 删除文件及目录
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">deleteFolder</span><span style="color:#ff79c6">(</span>File folder<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        File<span style="color:#ff79c6">[]</span> files <span style="color:#ff79c6">=</span> folder<span style="color:#ff79c6">.</span><span style="color:#50fa7b">listFiles</span><span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>files <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>File f <span style="color:#ff79c6">:</span> files<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>f<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isDirectory</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+                    deleteFolder<span style="color:#ff79c6">(</span>f<span style="color:#ff79c6">);</span>
+                <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+                    f<span style="color:#ff79c6">.</span><span style="color:#50fa7b">delete</span><span style="color:#ff79c6">();</span>
+                <span style="color:#ff79c6">}</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span>
+        folder<span style="color:#ff79c6">.</span><span style="color:#50fa7b">delete</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div>
 
                 
                 
