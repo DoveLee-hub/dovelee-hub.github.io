@@ -211,6 +211,7 @@
         <li><a href="#15-通信协议">1.5 通信协议</a></li>
         <li><a href="#16-tcp">1.6 TCP</a></li>
         <li><a href="#17-udp">1.7 UDP</a></li>
+        <li><a href="#18-url下载文件">1.8 URL下载文件</a></li>
         <li><a href="#java补充知识">*JAVA补充知识</a></li>
       </ul>
     </li>
@@ -696,6 +697,173 @@ A：我真的要走了
     <span style="color:#ff79c6">}</span>
 
 <span style="color:#ff79c6">}</span>
+</code></pre></div><h3 id="udp多线程电商聊天">UDP多线程电商聊天</h3>
+<p>发送端</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.BufferedReader<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.io.InputStreamReader<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.DatagramPacket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.DatagramSocket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.InetSocketAddress<span style="color:#ff79c6">;</span>
+
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">UDPTalkSend</span> <span style="color:#8be9fd;font-style:italic">implements</span> Runnable<span style="color:#ff79c6">{</span>
+    DatagramSocket socket <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+    BufferedReader reader <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+
+    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span> fromPort<span style="color:#ff79c6">;</span>
+    <span style="color:#8be9fd;font-style:italic">private</span> String toIP<span style="color:#ff79c6">;</span>
+    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span> toPort<span style="color:#ff79c6">;</span>
+
+
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">UDPTalkSend</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> fromPort<span style="color:#ff79c6">,</span> String toIP<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> toPort<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+            socket <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DatagramSocket<span style="color:#ff79c6">(</span>fromPort<span style="color:#ff79c6">);</span>
+            reader <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> BufferedReader<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> InputStreamReader<span style="color:#ff79c6">(</span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">in</span><span style="color:#ff79c6">));</span>
+            <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">fromPort</span> <span style="color:#ff79c6">=</span> fromPort<span style="color:#ff79c6">;</span>
+            <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">toIP</span> <span style="color:#ff79c6">=</span> toIP<span style="color:#ff79c6">;</span>
+            <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">toPort</span> <span style="color:#ff79c6">=</span> toPort<span style="color:#ff79c6">;</span>
+        <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">}</span>
+    <span style="color:#ff79c6">}</span>
+
+
+    @Override
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">run</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#ff79c6">while</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">true</span><span style="color:#ff79c6">){</span>
+            <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+                String data <span style="color:#ff79c6">=</span> reader<span style="color:#ff79c6">.</span><span style="color:#50fa7b">readLine</span><span style="color:#ff79c6">();</span>
+                <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> datas <span style="color:#ff79c6">=</span> data<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">();</span>
+                DatagramPacket packet <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DatagramPacket<span style="color:#ff79c6">(</span>datas<span style="color:#ff79c6">,</span>0<span style="color:#ff79c6">,</span>datas<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">,</span><span style="color:#ff79c6">new</span> InetSocketAddress<span style="color:#ff79c6">(</span><span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">toIP</span><span style="color:#ff79c6">,</span><span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">toPort</span><span style="color:#ff79c6">));</span>
+
+                socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">send</span><span style="color:#ff79c6">(</span>packet<span style="color:#ff79c6">);</span>
+                <span style="color:#ff79c6">if</span><span style="color:#ff79c6">(</span>data<span style="color:#ff79c6">.</span><span style="color:#50fa7b">startsWith</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;bye&#34;</span><span style="color:#ff79c6">)){</span>
+                    <span style="color:#ff79c6">break</span><span style="color:#ff79c6">;</span>
+                <span style="color:#ff79c6">}</span>
+            <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>Exception e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+            <span style="color:#ff79c6">}</span>
+
+        <span style="color:#ff79c6">}</span>
+
+        socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>接收端</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.IOException<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.DatagramPacket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.DatagramSocket<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.SocketException<span style="color:#ff79c6">;</span>
+
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">UDPTalkReceive</span> <span style="color:#8be9fd;font-style:italic">implements</span> Runnable<span style="color:#ff79c6">{</span>
+
+    DatagramSocket socket <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span> port<span style="color:#ff79c6">;</span>
+    <span style="color:#8be9fd;font-style:italic">private</span> String msgfrom<span style="color:#ff79c6">;</span>
+
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">UDPTalkReceive</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> port<span style="color:#ff79c6">,</span>String msgfrom<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> SocketException <span style="color:#ff79c6">{</span>
+        <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">port</span> <span style="color:#ff79c6">=</span> port<span style="color:#ff79c6">;</span>
+        <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">msgfrom</span> <span style="color:#ff79c6">=</span> msgfrom<span style="color:#ff79c6">;</span>
+        socket <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DatagramSocket<span style="color:#ff79c6">(</span>port<span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+
+    @Override
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">run</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#ff79c6">while</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">true</span><span style="color:#ff79c6">){</span>
+
+            <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+                <span style="color:#6272a4">//准备接收数据
+</span><span style="color:#6272a4"></span>                <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> container <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[</span>1024<span style="color:#ff79c6">];</span>
+                DatagramPacket packet <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DatagramPacket<span style="color:#ff79c6">(</span>container<span style="color:#ff79c6">,</span>0<span style="color:#ff79c6">,</span>container<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">);</span>
+
+                socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">receive</span><span style="color:#ff79c6">(</span>packet<span style="color:#ff79c6">);</span>
+
+
+                <span style="color:#6272a4">//断开链接
+</span><span style="color:#6272a4"></span>                <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> data <span style="color:#ff79c6">=</span> packet<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getData</span><span style="color:#ff79c6">();</span>
+                String receiveData <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span>data<span style="color:#ff79c6">,</span>0<span style="color:#ff79c6">,</span>data<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">);</span>
+
+                System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>msgfrom<span style="color:#ff79c6">+</span><span style="color:#f1fa8c">&#34;:&#34;</span><span style="color:#ff79c6">+</span>receiveData<span style="color:#ff79c6">);</span>
+
+                <span style="color:#ff79c6">if</span><span style="color:#ff79c6">(</span>receiveData<span style="color:#ff79c6">.</span><span style="color:#50fa7b">startsWith</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;bye&#34;</span><span style="color:#ff79c6">)){</span>
+                    <span style="color:#ff79c6">break</span><span style="color:#ff79c6">;</span>
+                <span style="color:#ff79c6">}</span>
+            <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span> <span style="color:#ff79c6">(</span>IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printStackTrace</span><span style="color:#ff79c6">();</span>
+            <span style="color:#ff79c6">}</span>
+
+        <span style="color:#ff79c6">}</span>
+        socket<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>店家</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.net.SocketException<span style="color:#ff79c6">;</span>
+
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Merchant_UDP</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> SocketException <span style="color:#ff79c6">{</span>
+        <span style="color:#ff79c6">new</span> Thread<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> UDPTalkSend<span style="color:#ff79c6">(</span>6666<span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;localhost&#34;</span><span style="color:#ff79c6">,</span>8888<span style="color:#ff79c6">)).</span><span style="color:#50fa7b">start</span><span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">new</span> Thread<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> UDPTalkReceive<span style="color:#ff79c6">(</span>9999<span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;顾客&#34;</span><span style="color:#ff79c6">)).</span><span style="color:#50fa7b">start</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>顾客</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.net.SocketException<span style="color:#ff79c6">;</span>
+
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Customer_UDP</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> SocketException <span style="color:#ff79c6">{</span>
+        <span style="color:#ff79c6">new</span> Thread<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> UDPTalkSend<span style="color:#ff79c6">(</span>7777<span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;localhost&#34;</span><span style="color:#ff79c6">,</span>9999<span style="color:#ff79c6">)).</span><span style="color:#50fa7b">start</span><span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">new</span> Thread<span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> UDPTalkReceive<span style="color:#ff79c6">(</span>8888<span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;商家&#34;</span><span style="color:#ff79c6">)).</span><span style="color:#50fa7b">start</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>运行效果</p>
+<pre><code>客户视角
+  商家:你好
+  商家:你想要点什么
+  我想要一杯奶茶
+  商家:这是你的奶茶
+  谢谢
+  商家:不客气
+  bye
+  商家:bye
+
+商家视角
+	你好
+  你想要点什么
+  顾客:我想要一杯奶茶
+  这是你的奶茶
+  顾客:谢谢
+  不客气
+  顾客:bye
+  bye
+</code></pre><h2 id="18-url下载文件">1.8 URL下载文件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> java.io.FileOutputStream<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.io.InputStream<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.HttpURLConnection<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.net.URL<span style="color:#ff79c6">;</span>
+
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Urldown</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">//1.下载地址
+</span><span style="color:#6272a4"></span>        URL url <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> URL<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://m10.music.126.net/20200517234456/1485831560f6ed696bdac061dc96476f/yyaac/555f/565f/5459/b5d263a2b6a5c9a9258fc39090629840.m4a&#34;</span><span style="color:#ff79c6">);</span>
+
+        <span style="color:#6272a4">//2.连接到这个资源 HTTP
+</span><span style="color:#6272a4"></span>        HttpURLConnection urlConnection <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>HttpURLConnection<span style="color:#ff79c6">)</span> url<span style="color:#ff79c6">.</span><span style="color:#50fa7b">openConnection</span><span style="color:#ff79c6">();</span>
+
+        InputStream inputStream <span style="color:#ff79c6">=</span> urlConnection<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getInputStream</span><span style="color:#ff79c6">();</span>
+
+        FileOutputStream fos <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileOutputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Music.m4a&#34;</span><span style="color:#ff79c6">);</span><span style="color:#6272a4">//保存文件的名字，记得更换格式噢
+</span><span style="color:#6272a4"></span>
+        <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> buffer <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[</span>1024<span style="color:#ff79c6">];</span>
+        <span style="color:#8be9fd">int</span> len<span style="color:#ff79c6">;</span>
+        <span style="color:#ff79c6">while</span><span style="color:#ff79c6">((</span>len<span style="color:#ff79c6">=</span>inputStream<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">))!=-</span>1<span style="color:#ff79c6">){</span>
+            fos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">,</span>0<span style="color:#ff79c6">,</span>len<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span>
+
+        fos<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();;</span>
+        inputStream<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+        urlConnection<span style="color:#ff79c6">.</span><span style="color:#50fa7b">disconnect</span><span style="color:#ff79c6">();</span>
+
+
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
 </code></pre></div><h2 id="java补充知识">*JAVA补充知识</h2>
 <h3 id="java小知识">Java小知识</h3>
 <ul>
@@ -818,7 +986,7 @@ end
 <span style="color:#ff79c6">}</span>
 </code></pre></div><p>运行以上实例在输出窗口输出 &ldquo;A&rdquo; 字符</p>
 <pre><code>A
-</code></pre><p><strong>注意</strong>:write() 方法不经常使用，因为 print() 和 println() 方法用起来更为方便。</p>
+</code></pre><p>**注意：**write() 方法不经常使用，因为 print() 和 println() 方法用起来更为方便。</p>
 <h4 id="读写文件">读写文件</h4>
 <p>如前所述，一个流被定义为一个数据序列。输入流用于从源读取数据，输出流用于向目标写数据。</p>
 <p>下图是一个描述输入流和输出流的类层次图。</p>
