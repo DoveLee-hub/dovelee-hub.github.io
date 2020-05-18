@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Mr.Lee&#39;s Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://dovelee-hub.github.io//img/006K4zUIgy1gc9ws7pt5uj30vm0hsdm3.jpg">
+    <meta property="twitter:image" content="https://dovelee-hub.github.io//img/006K4zUIgy1gc9ws7pt5uj30vm0hsdm3.jpg" />
+    
+
+    
+    <meta name="title" content="HTML" />
+    <meta property="og:title" content="HTML" />
+    <meta property="twitter:title" content="HTML" />
+    
+
+    
+    <meta name="description" content="DoveLee,业余程序员, 开源爱好者，生活探险家 | 这里是 DoveLee 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="DoveLee,业余程序员, 开源爱好者，生活探险家 | 这里是 DoveLee 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="DoveLee,业余程序员, 开源爱好者，生活探险家 | 这里是 DoveLee 的博客，与你一起发现更大的世界。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="智, dovelee, DoveLee, DoveLee的网络日志, DoveLee的博客, DoveLeeBlog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>HTML-DoveLee的博客 | DoveLee Blog</title>
+
+    <link rel="canonical" href="/post/htmi_learn/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Mr.Lee&#39;s Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/006K4zUIgy1gc9ws7pt5uj30vm0hsdm3.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>HTML</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;Zhi Li&#34;
+                         
+                        on 
+                        Monday, May 18, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#html详解">HTML详解</a>
+      <ul>
+        <li><a href="#html简介">HTML简介</a></li>
+        <li><a href="#网页基本信息">网页基本信息</a></li>
+        <li><a href="#网页基本标签">网页基本标签</a></li>
+        <li><a href="#图片标签">图片标签</a></li>
+        <li><a href="#超链接标签及应用">超链接标签及应用</a></li>
+        <li><a href="#块元素和行内元素">块元素和行内元素</a></li>
+        <li><a href="#列表标签">列表标签</a></li>
+        <li><a href="#表格标签">表格标签</a></li>
+        <li><a href="#媒体元素">媒体元素</a></li>
+        <li><a href="#网页结构分析">网页结构分析</a></li>
+        <li><a href="#iframe内联框架">iframe内联框架</a></li>
+        <li><a href="#表单">表单</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h1 id="html详解">HTML详解</h1>
+<h2 id="html简介">HTML简介</h2>
+<ul>
+<li>
+<p>HTML</p>
+<p>Hyper Text Markup Language（超文本标记语言）</p>
+<p>超文本包括：文字，图片，音频，视频，动画等</p>
+</li>
+<li>
+<p>HTML5的优势</p>
+<ul>
+<li>浏览器厂商的支持</li>
+<li>市场需求</li>
+<li>跨平台</li>
+</ul>
+</li>
+<li>
+<p>W3C标准</p>
+<p>World Wide Web Consor（万维网联盟）</p>
+<p>W3C标准包括</p>
+<ul>
+<li>结构化标准语言（HTML、XML）</li>
+<li>表现标准语言（CSS）</li>
+<li>行为标准（DOM、ECMAScript）</li>
+</ul>
+</li>
+</ul>
+<h2 id="网页基本信息">网页基本信息</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#6272a4">&lt;!--告诉浏览器我们要使用什么规范--&gt;</span>
+<span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+<span style="color:#6272a4">&lt;!--head标签代表网页头部--&gt;</span>
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    <span style="color:#6272a4">&lt;!--meta描述性标签。用来描述网站的一些信息--&gt;</span>
+    <span style="color:#6272a4">&lt;!--meta一般用来做SEO--&gt;</span>
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;keynames&#34;</span> <span style="color:#50fa7b">content</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Dove,Lee,HTML&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Description&#34;</span> <span style="color:#50fa7b">content</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;我的第一个HTML文件&#34;</span>&gt;
+    <span style="color:#6272a4">&lt;!--title标签代表网页名--&gt;</span>
+    &lt;<span style="color:#ff79c6">title</span>&gt;DoveLee&lt;/<span style="color:#ff79c6">title</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+<span style="color:#6272a4">&lt;!--body标签代表网页主体--&gt;</span>
+&lt;<span style="color:#ff79c6">body</span>&gt;
+Hello World
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><p>注：command + / 可以快速注释</p>
+<p>代码一定要写到每个标签对儿中间 比如网页主体要写到<!-- raw HTML omitted -->&hellip;&hellip;<!-- raw HTML omitted -->之中 标签一定要成对儿且闭合</p>
+<h2 id="网页基本标签">网页基本标签</h2>
+<p>注：写好标签名后，按住tab可自动生成标签对儿</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;基本标签&lt;/<span style="color:#ff79c6">title</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+<span style="color:#6272a4">&lt;!--标题标签--&gt;</span>
+&lt;<span style="color:#ff79c6">h1</span>&gt;一级标签&lt;/<span style="color:#ff79c6">h1</span>&gt;
+&lt;<span style="color:#ff79c6">h2</span>&gt;二级标签&lt;/<span style="color:#ff79c6">h2</span>&gt;
+&lt;<span style="color:#ff79c6">h3</span>&gt;三级标签&lt;/<span style="color:#ff79c6">h3</span>&gt;
+&lt;<span style="color:#ff79c6">h4</span>&gt;四级标签&lt;/<span style="color:#ff79c6">h4</span>&gt;
+&lt;<span style="color:#ff79c6">h5</span>&gt;五级标签&lt;/<span style="color:#ff79c6">h5</span>&gt;
+&lt;<span style="color:#ff79c6">h6</span>&gt;六级标签&lt;/<span style="color:#ff79c6">h6</span>&gt;
+
+<span style="color:#6272a4">&lt;!--段落标签--&gt;</span>
+&lt;<span style="color:#ff79c6">p</span>&gt;两只老虎 两只老虎&lt;/<span style="color:#ff79c6">p</span>&gt;
+&lt;<span style="color:#ff79c6">p</span>&gt;跑得快 跑得快&lt;/<span style="color:#ff79c6">p</span>&gt;
+&lt;<span style="color:#ff79c6">p</span>&gt;一直没有眼睛 一直没有尾巴&lt;/<span style="color:#ff79c6">p</span>&gt;
+&lt;<span style="color:#ff79c6">p</span>&gt;真奇怪 真奇怪&lt;/<span style="color:#ff79c6">p</span>&gt;
+
+<span style="color:#6272a4">&lt;!--水平线标签--&gt;</span>
+&lt;<span style="color:#ff79c6">hr</span>&gt;
+
+<span style="color:#6272a4">&lt;!--字体标签--&gt;</span>
+&lt;<span style="color:#ff79c6">strong</span>&gt;粗体&lt;/<span style="color:#ff79c6">strong</span>&gt;
+&lt;<span style="color:#ff79c6">em</span>&gt;斜体&lt;/<span style="color:#ff79c6">em</span>&gt; &lt;<span style="color:#ff79c6">br</span>&gt;
+
+<span style="color:#6272a4">&lt;!--换行标签--&gt;</span>
+两只老虎 两只老虎&lt;<span style="color:#ff79c6">br</span>&gt;
+跑得快 跑得快&lt;<span style="color:#ff79c6">br</span>&gt;
+&lt;<span style="color:#ff79c6">br</span>&gt;
+<span style="color:#6272a4">&lt;!--特殊符号--&gt;</span>
+多个空格&lt;<span style="color:#ff79c6">br</span>&gt;
+空&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;格
+&lt;<span style="color:#ff79c6">br</span>&gt;
+&amp;gt;
+<span style="color:#6272a4">&lt;!--大于号--&gt;</span>
+&lt;<span style="color:#ff79c6">br</span>&gt;
+&amp;lt;
+<span style="color:#6272a4">&lt;!--小于号--&gt;</span>
+&lt;<span style="color:#ff79c6">br</span>&gt;
+&amp;copy;版权所有Lee
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><h2 id="图片标签">图片标签</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">img</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;path&#34;</span> <span style="color:#50fa7b">alt</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> <span style="color:#50fa7b">title</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> <span style="color:#50fa7b">width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;x&#34;</span> <span style="color:#50fa7b">height</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;y&#34;</span>/&gt;
+   <span style="color:#6272a4">&lt;!--  图片地址 图像的替代文字 鼠标悬停提示文字  宽度        高度 --&gt;</span>
+</code></pre></div><p><em>path : 图片地址（相对地址（推荐使用），绝对地址）</em></p>
+<p><em>../     上一级目录</em></p>
+<p><em>alt：图片文字 指图片加载不出来时，显示的文字</em></p>
+<h2 id="超链接标签及应用">超链接标签及应用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;链接标签学习&lt;/<span style="color:#ff79c6">title</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+<span style="color:#6272a4">&lt;!--锚标记--&gt;</span>
+&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top&#34;</span>&gt;顶部&lt;/<span style="color:#ff79c6">a</span>&gt;
+&lt;<span style="color:#ff79c6">br</span>&gt;
+
+<span style="color:#6272a4">&lt;!--a 标签
+</span><span style="color:#6272a4">href ： 必填，表示要跳转到哪个页面
+</span><span style="color:#6272a4">target ： 表示窗口在哪里打开 _blank 在新的网页打开 _self在当前网页打开
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://www.baidu.com&#34;</span> <span style="color:#50fa7b">target</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;_blank&#34;</span>&gt;点击我跳转到百度&lt;/<span style="color:#ff79c6">a</span>&gt;
+&lt;<span style="color:#ff79c6">br</span>&gt;
+&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://www.baidu.com&#34;</span>&gt;
+<span style="color:#6272a4">&lt;!--通过点击图片跳转链接--&gt;</span>
+<span style="color:#6272a4">&lt;!--    &lt;img src=&#34;path&#34; alt=&#34;text&#34; title=&#34;text&#34; width=&#34;x&#34; height=&#34;y&#34;/&gt;--&gt;</span>
+&lt;/<span style="color:#ff79c6">a</span>&gt;
+
+<span style="color:#6272a4">&lt;!--锚链接
+</span><span style="color:#6272a4">1.需要一个锚标记
+</span><span style="color:#6272a4">2.跳转到标记
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#top&#34;</span>&gt;回到顶部&lt;/<span style="color:#ff79c6">a</span>&gt;
+
+<span style="color:#6272a4">&lt;!--功能性链接
+</span><span style="color:#6272a4">邮件链接：mailto
+</span><span style="color:#6272a4">QQ链接：QQ推广中获取链接
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;mailto:958055356@qq.com&#34;</span>&gt;点击联系我&lt;/<span style="color:#ff79c6">a</span>&gt;
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><h2 id="块元素和行内元素">块元素和行内元素</h2>
+<h3 id="块元素">块元素</h3>
+<ul>
+<li>无论内容多少，该元素独占一行</li>
+<li>p、h1~h6&hellip;&hellip;</li>
+</ul>
+<h3 id="行内元素">行内元素</h3>
+<ul>
+<li>内容撑开宽度，左右都是行内元素的可以排在一行</li>
+<li>a、strong、em&hellip;&hellip;</li>
+</ul>
+<h2 id="列表标签">列表标签</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;列表学习&lt;/<span style="color:#ff79c6">title</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+
+<span style="color:#6272a4">&lt;!--有序列表--&gt;</span>
+&lt;<span style="color:#ff79c6">ol</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;Java&lt;/<span style="color:#ff79c6">li</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;Python&lt;/<span style="color:#ff79c6">li</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;C++&lt;/<span style="color:#ff79c6">li</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;测试&lt;/<span style="color:#ff79c6">li</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;开发&lt;/<span style="color:#ff79c6">li</span>&gt;
+&lt;/<span style="color:#ff79c6">ol</span>&gt;
+&lt;<span style="color:#ff79c6">hr</span>&gt;
+<span style="color:#6272a4">&lt;!--无序列表
+</span><span style="color:#6272a4">应用范围：导航，侧边栏
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">ul</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;Java&lt;/<span style="color:#ff79c6">li</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;Python&lt;/<span style="color:#ff79c6">li</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;C++&lt;/<span style="color:#ff79c6">li</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;测试&lt;/<span style="color:#ff79c6">li</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;开发&lt;/<span style="color:#ff79c6">li</span>&gt;
+&lt;/<span style="color:#ff79c6">ul</span>&gt;
+&lt;<span style="color:#ff79c6">hr</span>&gt;
+<span style="color:#6272a4">&lt;!--自定义列表
+</span><span style="color:#6272a4">dl:标签
+</span><span style="color:#6272a4">dt:列表名称
+</span><span style="color:#6272a4">dd:列表内容
+</span><span style="color:#6272a4">应用范围：公司网站底部
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">dl</span>&gt;
+    &lt;<span style="color:#ff79c6">dt</span>&gt;招聘岗位&lt;/<span style="color:#ff79c6">dt</span>&gt;
+
+    &lt;<span style="color:#ff79c6">dd</span>&gt;Java&lt;/<span style="color:#ff79c6">dd</span>&gt;
+    &lt;<span style="color:#ff79c6">dd</span>&gt;Python&lt;/<span style="color:#ff79c6">dd</span>&gt;
+    &lt;<span style="color:#ff79c6">dd</span>&gt;C++&lt;/<span style="color:#ff79c6">dd</span>&gt;
+    &lt;<span style="color:#ff79c6">dd</span>&gt;测试&lt;/<span style="color:#ff79c6">dd</span>&gt;
+    &lt;<span style="color:#ff79c6">dd</span>&gt;开发&lt;/<span style="color:#ff79c6">dd</span>&gt;
+&lt;/<span style="color:#ff79c6">dl</span>&gt;
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><h2 id="表格标签">表格标签</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;表格学习&lt;/<span style="color:#ff79c6">title</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+<span style="color:#6272a4">&lt;!--表格 table 添加边框 border
+</span><span style="color:#6272a4">行 tr
+</span><span style="color:#6272a4">列 td
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">table</span> <span style="color:#50fa7b">border</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1px&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">tr</span>&gt;
+    <span style="color:#6272a4">&lt;!--colspan 跨列--&gt;</span>
+        &lt;<span style="color:#ff79c6">td</span> <span style="color:#50fa7b">colspan</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;4&#34;</span>&gt;1-1&lt;/<span style="color:#ff79c6">td</span>&gt;
+    &lt;/<span style="color:#ff79c6">tr</span>&gt;
+    &lt;<span style="color:#ff79c6">tr</span>&gt;
+    <span style="color:#6272a4">&lt;!--rowspan 跨行--&gt;</span>
+        &lt;<span style="color:#ff79c6">td</span> <span style="color:#50fa7b">rowspan</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;2&#34;</span>&gt;2-1&lt;/<span style="color:#ff79c6">td</span>&gt;
+        &lt;<span style="color:#ff79c6">td</span>&gt;2-2&lt;/<span style="color:#ff79c6">td</span>&gt;
+        &lt;<span style="color:#ff79c6">td</span>&gt;2-3&lt;/<span style="color:#ff79c6">td</span>&gt;
+        &lt;<span style="color:#ff79c6">td</span>&gt;2-4&lt;/<span style="color:#ff79c6">td</span>&gt;
+    &lt;/<span style="color:#ff79c6">tr</span>&gt;
+    &lt;<span style="color:#ff79c6">tr</span>&gt;
+        &lt;<span style="color:#ff79c6">td</span>&gt;3-1&lt;/<span style="color:#ff79c6">td</span>&gt;
+        &lt;<span style="color:#ff79c6">td</span>&gt;3-2&lt;/<span style="color:#ff79c6">td</span>&gt;
+        &lt;<span style="color:#ff79c6">td</span>&gt;3-3&lt;/<span style="color:#ff79c6">td</span>&gt;
+    &lt;/<span style="color:#ff79c6">tr</span>&gt;
+&lt;/<span style="color:#ff79c6">table</span>&gt;
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><h2 id="媒体元素">媒体元素</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;媒体元素学习&lt;/<span style="color:#ff79c6">title</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+<span style="color:#6272a4">&lt;!--音频和视频--&gt;</span>
+
+<span style="color:#6272a4">&lt;!--
+</span><span style="color:#6272a4">src：资源路径
+</span><span style="color:#6272a4">controls:添加播放控制
+</span><span style="color:#6272a4">autoplay:自动播放
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">video</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;path&#34;</span> <span style="color:#50fa7b">controls</span> <span style="color:#50fa7b">autoplay</span>&gt;&lt;/<span style="color:#ff79c6">video</span>&gt;
+
+&lt;<span style="color:#ff79c6">audio</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;path&#34;</span> <span style="color:#50fa7b">controls</span> <span style="color:#50fa7b">autoplay</span>&gt;&lt;/<span style="color:#ff79c6">audio</span>&gt;
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><h2 id="网页结构分析">网页结构分析</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;页面结构分析&lt;/<span style="color:#ff79c6">title</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+<span style="color:#6272a4">&lt;!--
+</span><span style="color:#6272a4">header 标题头部区域的内存（用于页面或页面中的一块区域）
+</span><span style="color:#6272a4">footer 标记脚步区域的内容（用于整个页面或页面的一块区域）
+</span><span style="color:#6272a4">section Web页面的一块独立区域
+</span><span style="color:#6272a4">article 独立的文章内容
+</span><span style="color:#6272a4">aside 相关内容或应用
+</span><span style="color:#6272a4">nav 导航类辅助内容
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">header</span>&gt;
+    &lt;<span style="color:#ff79c6">h2</span>&gt;网页头部&lt;/<span style="color:#ff79c6">h2</span>&gt;
+&lt;/<span style="color:#ff79c6">header</span>&gt;
+
+&lt;<span style="color:#ff79c6">section</span>&gt;
+    &lt;<span style="color:#ff79c6">h2</span>&gt;网页主体&lt;/<span style="color:#ff79c6">h2</span>&gt;
+&lt;/<span style="color:#ff79c6">section</span>&gt;
+
+&lt;<span style="color:#ff79c6">footer</span>&gt;
+    &lt;<span style="color:#ff79c6">h2</span>&gt;网页脚部&lt;/<span style="color:#ff79c6">h2</span>&gt;
+&lt;/<span style="color:#ff79c6">footer</span>&gt;
+
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><h2 id="iframe内联框架">iframe内联框架</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;iframe&lt;/<span style="color:#ff79c6">title</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+<span style="color:#6272a4">&lt;!--iframe内联框架
+</span><span style="color:#6272a4">name:框架标识名
+</span><span style="color:#6272a4">src:地址
+</span><span style="color:#6272a4">width：宽度
+</span><span style="color:#6272a4">height：高度
+</span><span style="color:#6272a4">--&gt;</span>
+<span style="color:#6272a4">&lt;!--直接内联--&gt;</span>
+&lt;<span style="color:#ff79c6">iframe</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://www.baidu.com&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;baidu&#34;</span> <span style="color:#50fa7b">frameborder</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0&#34;</span> <span style="color:#50fa7b">height</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;800px&#34;</span> <span style="color:#50fa7b">width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1500px&#34;</span>&gt;&lt;/<span style="color:#ff79c6">iframe</span>&gt;
+
+<span style="color:#6272a4">&lt;!--通过跳转内联--&gt;</span>
+&lt;<span style="color:#ff79c6">iframe</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;baidu&#34;</span> <span style="color:#50fa7b">frameborder</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0&#34;</span> <span style="color:#50fa7b">height</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;800px&#34;</span> <span style="color:#50fa7b">width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1500px&#34;</span>&gt;&lt;/<span style="color:#ff79c6">iframe</span>&gt;
+&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://www.baidu.com&#34;</span> <span style="color:#50fa7b">target</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;baidu&#34;</span>&gt;点击跳转&lt;/<span style="color:#ff79c6">a</span>&gt;
+
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><h2 id="表单">表单</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;表单学习&lt;/<span style="color:#ff79c6">title</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+
+&lt;<span style="color:#ff79c6">h1</span>&gt;注册&lt;/<span style="color:#ff79c6">h1</span>&gt;
+<span style="color:#6272a4">&lt;!--表单form
+</span><span style="color:#6272a4">action（必填）:表单提交地址，可以是网站，也可以是一个请求处理地址
+</span><span style="color:#6272a4">method（必填）：post，get 提交方式
+</span><span style="color:#6272a4">    get方式提交：我们可以在URL中看到我们提交信息，不安全，高效
+</span><span style="color:#6272a4">    post方式提交：比较安全，传输大文件
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">form</span> <span style="color:#50fa7b">action</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1.FirstHTML.html&#34;</span> <span style="color:#50fa7b">method</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;get&#34;</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--文本输入框：input type=&#34;text&#34;
+</span><span style="color:#6272a4">    value=&#34;DoveLee&#34; 初识默认值
+</span><span style="color:#6272a4">    maxlength=&#34;8&#34; 最长能写几个字符
+</span><span style="color:#6272a4">    size=&#34;30&#34; 文本框长度
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;名字：&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;username&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;DoveLee&#34;</span> <span style="color:#50fa7b">maxlength</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;8&#34;</span> <span style="color:#50fa7b">size</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;30&#34;</span>&gt;&lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--密码框：input type=&#34;password&#34;--&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;密码：&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;password&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;pwd&#34;</span>&gt;&lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--单选框标签
+</span><span style="color:#6272a4">     input type=&#34;radio&#34;
+</span><span style="color:#6272a4">     value：单选框的值（必须指定value）
+</span><span style="color:#6272a4">     name：表示&#34;组&#34; 只有组相同才能实现单选
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;性别：
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;radio&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;boy&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sex&#34;</span> <span style="color:#50fa7b">checked</span>&gt;男
+<span style="color:#6272a4">&lt;!--        checked 默认选中--&gt;</span>
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;radio&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;girl&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sex&#34;</span>&gt;女
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--多选框
+</span><span style="color:#6272a4">    input type=&#34;checkbox&#34;
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt; 爱好
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;checkbox&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sleep&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;hobby&#34;</span>&gt;睡觉
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;checkbox&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;code&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;hobby&#34;</span> <span style="color:#50fa7b">checked</span>&gt;敲代码
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;checkbox&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;chat&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;hobby&#34;</span>&gt;聊天
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;checkbox&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;game&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;hobby&#34;</span>&gt;游戏
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+    <span style="color:#6272a4">&lt;!--按钮
+</span><span style="color:#6272a4">    button：普通按钮
+</span><span style="color:#6272a4">    image：图片按钮
+</span><span style="color:#6272a4">    submit:提交按钮
+</span><span style="color:#6272a4">    reset：重置按钮
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;button&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;btn1&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;click&#34;</span>&gt;
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;image&#34;</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;../../photo.png&#34;</span>&gt;
+        <span style="color:#6272a4">&lt;!--通过图片进行提交--&gt;</span>
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+    
+    <span style="color:#6272a4">&lt;!--下拉框，列表框
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;国家
+        &lt;<span style="color:#ff79c6">select</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;列表名称&#34;</span>&gt;
+            &lt;<span style="color:#ff79c6">option</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;China&#34;</span>&gt;中国&lt;/<span style="color:#ff79c6">option</span>&gt;
+            &lt;<span style="color:#ff79c6">option</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;US&#34;</span>&gt;美国&lt;/<span style="color:#ff79c6">option</span>&gt;
+            &lt;<span style="color:#ff79c6">option</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Switzerland&#34;</span> <span style="color:#50fa7b">selected</span>&gt;瑞士&lt;/<span style="color:#ff79c6">option</span>&gt;
+            <span style="color:#6272a4">&lt;!--selected 默认选中--&gt;</span>
+            &lt;<span style="color:#ff79c6">option</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;India&#34;</span>&gt;印度&lt;/<span style="color:#ff79c6">option</span>&gt;
+        &lt;/<span style="color:#ff79c6">select</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+    <span style="color:#6272a4">&lt;!--文本域textarea
+</span><span style="color:#6272a4">        name：文本域名字
+</span><span style="color:#6272a4">        cols：行数
+</span><span style="color:#6272a4">        rows：列数
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt; 反馈：
+        &lt;<span style="color:#ff79c6">textarea</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;textarea&#34;</span> <span style="color:#50fa7b">cols</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;50&#34;</span> <span style="color:#50fa7b">rows</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;10&#34;</span>&gt;&lt;/<span style="color:#ff79c6">textarea</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--文件域
+</span><span style="color:#6272a4">    input type = &#34;file&#34; name=&#34;files&#34;
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;file&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;files&#34;</span>&gt;
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;button&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;上传&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;upload&#34;</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--邮件验证
+</span><span style="color:#6272a4">    input type=&#34;email&#34; name=&#34;email&#34;
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;邮箱验证
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;email&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;email&#34;</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--URL验证
+</span><span style="color:#6272a4">    input type=&#34;url&#34; name=&#34;url&#34;
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;url验证
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;url&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;url&#34;</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--数字验证
+</span><span style="color:#6272a4">    input type=&#34;number&#34; name=&#34;num&#34;
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;商品数量
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;number&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;num&#34;</span> <span style="color:#50fa7b">max</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;100&#34;</span> <span style="color:#50fa7b">min</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0&#34;</span> <span style="color:#50fa7b">step</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;10&#34;</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--滑块验证
+</span><span style="color:#6272a4">    input type=&#34;range&#34; name=&#34;voice&#34;
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;音量
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;range&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;voice&#34;</span> <span style="color:#50fa7b">min</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0&#34;</span> <span style="color:#50fa7b">max</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;100&#34;</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--搜索框
+</span><span style="color:#6272a4">    input type=&#34;search&#34; name=&#34;search&#34;
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;搜索
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;search&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;search&#34;</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    &lt;<span style="color:#ff79c6">p</span>&gt;
+        <span style="color:#6272a4">&lt;!--增强鼠标可用性--&gt;</span>
+        &lt;<span style="color:#ff79c6">label</span> <span style="color:#50fa7b">for</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;mark&#34;</span>&gt; 你点我试试&lt;/<span style="color:#ff79c6">label</span>&gt;
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;mark&#34;</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--提交和重置按钮--&gt;</span>
+    &lt;<span style="color:#ff79c6">p</span>&gt;
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;submit&#34;</span>&gt;
+        &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;reset&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;清空表单&#34;</span>&gt;
+    &lt;/<span style="color:#ff79c6">p</span>&gt;
+&lt;/<span style="color:#ff79c6">form</span>&gt;
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><p><em>注：input中基本都要写name</em></p>
+<p><em>其他拓展：input中添加关键字</em></p>
+<ul>
+<li>readonly 只读</li>
+<li>hidden 隐藏</li>
+<li>disable 禁用</li>
+<li>placeholder 提示信息</li>
+<li>required 非空判断</li>
+<li>pattern 正则表达式验证  （正则表达式百度查就完了）</li>
+</ul>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p> 「如果这篇文章对你有用,请随意打赏」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="https://dovelee-hub.github.io/"><img src="/img/favicon.png" />Mr.Lee&#39;s Blog</a></span>
+        
+	        <p class="tip"><i></i><span>如果这篇文章对你有用,请随意打赏</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/javaweb/" data-toggle="tooltip" data-placement="top" title="JavaWeb_Coding">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href=""></a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Mr.Lee&#39;s Blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:958055356@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://user-images.githubusercontent.com/58317994/82021498-81ddbf00-96bd-11ea-84c9-d75115690261.JPG">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/DoveLee-hub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Mr.Lee&#39;s Blog 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
