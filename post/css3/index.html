@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Mr.Lee&#39;s Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://dovelee-hub.github.io//img/006K4zUIgy1gc9ws7pt5uj30vm0hsdm3.jpg">
+    <meta property="twitter:image" content="https://dovelee-hub.github.io//img/006K4zUIgy1gc9ws7pt5uj30vm0hsdm3.jpg" />
+    
+
+    
+    <meta name="title" content="CSS3" />
+    <meta property="og:title" content="CSS3" />
+    <meta property="twitter:title" content="CSS3" />
+    
+
+    
+    <meta name="description" content="DoveLee,业余程序员, 开源爱好者，生活探险家 | 这里是 DoveLee 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="DoveLee,业余程序员, 开源爱好者，生活探险家 | 这里是 DoveLee 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="DoveLee,业余程序员, 开源爱好者，生活探险家 | 这里是 DoveLee 的博客，与你一起发现更大的世界。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="智, dovelee, DoveLee, DoveLee的网络日志, DoveLee的博客, DoveLeeBlog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>CSS3-DoveLee的博客 | DoveLee Blog</title>
+
+    <link rel="canonical" href="/post/css3/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Mr.Lee&#39;s Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/006K4zUIgy1gc9ws7pt5uj30vm0hsdm3.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>CSS3</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;Zhi Li&#34;
+                         
+                        on 
+                        Tuesday, May 19, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#css3学习">CSS3学习</a>
+      <ul>
+        <li><a href="#1初步认识css">1.初步认识CSS</a></li>
+        <li><a href="#2选择器">2.选择器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h1 id="css3学习">CSS3学习</h1>
+<h2 id="1初步认识css">1.初步认识CSS</h2>
+<h3 id="11-如何学习css">1.1 如何学习CSS</h3>
+<ol>
+<li>CSS是什么</li>
+<li>CSS怎么用（快速入门级别）</li>
+<li>CSS选择器（重点+难点）</li>
+<li>美化网页（文字、阴影、超链接、列表、渐变等）</li>
+<li>盒子模型</li>
+<li>浮动</li>
+<li>定位</li>
+<li>网页动画（特效效果）</li>
+</ol>
+<h3 id="12-什么是css">1.2 什么是CSS</h3>
+<p>Cascading Style Sheet 层叠级联样式表</p>
+<p>CSS：表现（美化网页）</p>
+<p>字体、颜色、边距、高度、宽度、背景图片、网页定位、网页浮动&hellip;&hellip;</p>
+<h3 id="13-css发展史">1.3 CSS发展史</h3>
+<ul>
+<li>
+<p>CSS1.0</p>
+</li>
+<li>
+<p>CSS2.0</p>
+<ul>
+<li>DIV（自定义块）+CSS</li>
+<li>提出了HTML与CSS分离的概念 ，网页变得简单，SEO</li>
+</ul>
+</li>
+<li>
+<p>CSS2.1</p>
+<ul>
+<li>浮动</li>
+<li>定位</li>
+</ul>
+</li>
+<li>
+<p>CSS3.0</p>
+<ul>
+<li>圆角，阴影，动画等等</li>
+<li>存在浏览器兼容性问题</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-css优势">1.4 CSS优势</h3>
+<ol>
+<li>内容和表现分离</li>
+<li>网页结果表现统一，可以实现复用</li>
+<li>样式十分丰富</li>
+<li>建议使用独立于html的css文件</li>
+<li>利用SEO，容易被搜索引擎收录</li>
+</ol>
+<h3 id="15-css的三种导入方式">1.5 CSS的三种导入方式</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;Title&lt;/<span style="color:#ff79c6">title</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--内部样式--&gt;</span>
+    &lt;<span style="color:#ff79c6">style</span>&gt;
+        <span style="color:#ff79c6">h1</span>{
+            <span style="color:#ff79c6">color</span>: <span style="color:#ff79c6">green</span>;
+          <span style="color:#6272a4">/*选择器每一行都要有分号结尾*/</span>
+        }
+    &lt;/<span style="color:#ff79c6">style</span>&gt;
+    <span style="color:#6272a4">&lt;!--外部样式
+</span><span style="color:#6272a4">    通过link进行外部索引
+</span><span style="color:#6272a4">    --&gt;</span>
+    &lt;<span style="color:#ff79c6">link</span> <span style="color:#50fa7b">rel</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;stylesheet&#34;</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;css/style.css&#34;</span>&gt;
+
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+<span style="color:#6272a4">&lt;!--行内样式：
+</span><span style="color:#6272a4">在标签元素中，编写一个style属性，编写样式即可
+</span><span style="color:#6272a4">--&gt;</span>
+&lt;<span style="color:#ff79c6">h1</span> <span style="color:#50fa7b">style</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;color: red&#34;</span>&gt;我是标题&lt;/<span style="color:#ff79c6">h1</span>&gt;
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><p><em>注：选择器每一行都要有分号结尾</em></p>
+<p><em>优先级：后写的会把之前写的覆盖掉，所以行内样式优先级最高，内部样式和外部样式看谁离“被修饰块”近</em></p>
+<p>拓展：外部样式两种写法</p>
+<ul>
+<li>链接式（推荐）</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#ff79c6">link</span> <span style="color:#50fa7b">rel</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;stylesheet&#34;</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;css/style.css&#34;</span>&gt;
+</code></pre></div><ul>
+<li>
+<p>导入式（不推荐）</p>
+<p>会导致网页先出现结构，再进行渲染</p>
+<p>是CSS 2.1特有的</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">style</span>&gt;
+  @import url(&#34;css/style.css&#34;);
+&lt;<span style="color:#ff79c6">style</span>&gt;
+</code></pre></div><h2 id="2选择器">2.选择器</h2>
+<p>作用：选择页面上的某一个元素或某一类元素</p>
+<h3 id="21基本选择器">2.1基本选择器</h3>
+<ol>
+<li>
+<p>标签选择器：选择一类标签</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;Title&lt;/<span style="color:#ff79c6">title</span>&gt;
+   
+    &lt;<span style="color:#ff79c6">style</span>&gt;
+        <span style="color:#6272a4">/*标签选择器，会选择到页面上的所有这个标签的元素*/</span>
+    <span style="color:#ff79c6">h1</span>{
+      <span style="color:#ff79c6">color</span>: <span style="color:#bd93f9">#00ffff</span>;
+    <span style="color:#6272a4">/*在IDE左侧颜色方框处，点击，即可选择更多颜色*/</span>
+    }
+        <span style="color:#ff79c6">p</span>{
+            <span style="color:#ff79c6">font-size</span>: <span style="color:#bd93f9">80</span><span style="color:#8be9fd">px</span>;
+        }
+    &lt;/<span style="color:#ff79c6">style</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+    &lt;<span style="color:#ff79c6">h1</span>&gt;标题1&lt;/<span style="color:#ff79c6">h1</span>&gt;
+    &lt;<span style="color:#ff79c6">h1</span>&gt;标题2&lt;/<span style="color:#ff79c6">h1</span>&gt;
+     &lt;<span style="color:#ff79c6">p</span>&gt;这是内容&lt;/<span style="color:#ff79c6">p</span>&gt;
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div></li>
+<li>
+<p>类选择器 class：选择所有class一致的标签，跨标签</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;Title&lt;/<span style="color:#ff79c6">title</span>&gt;
+   
+    &lt;<span style="color:#ff79c6">style</span>&gt;
+        <span style="color:#6272a4">/*类选择器的格式 .class的名称{}
+</span><span style="color:#6272a4">           好处：可以多个标签归类，是同一个class,可以复用
+</span><span style="color:#6272a4">        */</span>
+        .<span style="color:#50fa7b">DoveLee</span>{
+            <span style="color:#ff79c6">color</span>: <span style="color:#ff79c6">red</span>;
+        }
+        .<span style="color:#50fa7b">MrLee</span>{
+            <span style="color:#ff79c6">color</span>: <span style="color:#ff79c6">green</span>;
+        }
+    &lt;/<span style="color:#ff79c6">style</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+    <span style="color:#6272a4">&lt;!--class名字不能为数字--&gt;</span>
+    &lt;<span style="color:#ff79c6">h1</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;MrLee&#34;</span>&gt;标题1&lt;/<span style="color:#ff79c6">h1</span>&gt;
+    &lt;<span style="color:#ff79c6">h1</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;DoveLee&#34;</span>&gt;标题2&lt;/<span style="color:#ff79c6">h1</span>&gt;
+    &lt;<span style="color:#ff79c6">p</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;MrLee&#34;</span>&gt;这是内容&lt;/<span style="color:#ff79c6">p</span>&gt;
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div></li>
+<li>
+<p>Id选择器：ID名全局唯一</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;Title&lt;/<span style="color:#ff79c6">title</span>&gt;
+   
+    &lt;<span style="color:#ff79c6">style</span>&gt;
+        <span style="color:#6272a4">/*ID选择器格式    ID必须保证全局唯一且ID名不可为数字
+</span><span style="color:#6272a4">            #id名称{}
+</span><span style="color:#6272a4">        */</span>
+        #DoveLee{
+            <span style="color:#ff79c6">color</span>:<span style="color:#ff79c6">red</span>;
+        }
+    &lt;/<span style="color:#ff79c6">style</span>&gt;
+&lt;/<span style="color:#ff79c6">head</span>&gt;
+&lt;<span style="color:#ff79c6">body</span>&gt;
+    &lt;<span style="color:#ff79c6">h1</span> <span style="color:#50fa7b">ID</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;DoveLee&#34;</span>&gt;标题1&lt;/<span style="color:#ff79c6">h1</span>&gt;
+    &lt;<span style="color:#ff79c6">h1</span> <span style="color:#50fa7b">ID</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;MrLee&#34;</span>&gt;标题2&lt;/<span style="color:#ff79c6">h1</span>&gt;
+    &lt;<span style="color:#ff79c6">p</span>&gt;这是内容&lt;/<span style="color:#ff79c6">p</span>&gt;
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div></li>
+</ol>
+<p>优先级：ID选择器&gt;类选择器&gt;标签选择器</p>
+<h3 id="22-层次选择器">2.2 层次选择器</h3>
+<ol>
+<li>
+<p>后代选择器：选择全部后代</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#6272a4">/*后代选择器*/</span>
+        <span style="color:#ff79c6">body</span> <span style="color:#ff79c6">p</span>{
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">red</span>;
+        }
+</code></pre></div></li>
+<li>
+<p>子选择器：只选择往后一代</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"> <span style="color:#6272a4">/*子选择器*/</span>
+        <span style="color:#ff79c6">body</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p</span>{
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">red</span>;
+        }
+</code></pre></div></li>
+<li>
+<p>相邻兄弟选择器：选择相邻同辈（选择向下第一个同辈）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#6272a4">/*相邻兄弟选择器*/</span> 
+.<span style="color:#50fa7b">active</span><span style="color:#ff79c6">+</span><span style="color:#ff79c6">p</span>{
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">red</span>;
+        }
+</code></pre></div></li>
+<li>
+<p>通用选择器：选择向下所有同辈元素</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#6272a4">/*通用兄弟选择器*/</span>
+        .<span style="color:#50fa7b">active</span><span style="color:#ff79c6">~</span><span style="color:#ff79c6">p</span>{
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">red</span>;
+        }
+    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">style</span><span style="color:#ff79c6">&gt;</span>
+</code></pre></div><ol start="5">
+<li>测试代码</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">&lt;!</span><span style="color:#ff79c6">DOCTYPE</span> <span style="color:#ff79c6">html</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">html</span> <span style="color:#ff79c6">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">head</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">meta</span> <span style="color:#ff79c6">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">title</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">Title</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">title</span><span style="color:#ff79c6">&gt;</span>
+
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">style</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#6272a4">/*后代选择器*/</span>
+        <span style="color:#6272a4">/*body p{*/</span>
+        <span style="color:#6272a4">/*    background: red;*/</span>
+        <span style="color:#6272a4">/*}*/</span>
+
+        <span style="color:#6272a4">/*子选择器*/</span>
+        <span style="color:#6272a4">/*body&gt;p{*/</span>
+        <span style="color:#6272a4">/*    background: red;*/</span>
+        <span style="color:#6272a4">/*}*/</span>
+
+        <span style="color:#6272a4">/*相邻兄弟选择器*/</span>
+        <span style="color:#6272a4">/*.active+p{*/</span>
+        <span style="color:#6272a4">/*    background: red;*/</span>
+        <span style="color:#6272a4">/*}*/</span>
+
+        <span style="color:#6272a4">/*通用兄弟选择器*/</span>
+        .<span style="color:#50fa7b">active</span><span style="color:#ff79c6">~</span><span style="color:#ff79c6">p</span>{
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">red</span>;
+        }
+    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">style</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">head</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">body</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p0</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;active&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p1</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p2</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p3</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">ul</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p4</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p5</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p6</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">ul</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p7</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p8</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">body</span><span style="color:#ff79c6">&gt;</span>
+</code></pre></div><h3 id="23-结构伪类选择器">2.3 结构伪类选择器</h3>
+<p>伪类：条件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">&lt;!</span><span style="color:#ff79c6">DOCTYPE</span> <span style="color:#ff79c6">html</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">html</span> <span style="color:#ff79c6">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">head</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">meta</span> <span style="color:#ff79c6">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">title</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">Title</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">title</span><span style="color:#ff79c6">&gt;</span>
+
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">style</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#6272a4">/*选择ul第一个元素*/</span>
+        <span style="color:#ff79c6">ul</span> <span style="color:#ff79c6">li</span>:first-child{
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">red</span>;
+        }
+        <span style="color:#6272a4">/*选择ul最后一个元素*/</span>
+        <span style="color:#ff79c6">ul</span> <span style="color:#ff79c6">li</span>:last-child{
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">green</span>;
+        }
+
+        <span style="color:#6272a4">/*选中p1:定位到父元素，选择当前的第一个元素
+</span><span style="color:#6272a4">        选择当前p元素的夫元素，选中父元素的第一个，并且是当前元素（p元素）才生效
+</span><span style="color:#6272a4">				不区分类型:比如我在p1前加了h1，则它会判定h1不是p，所以不执行动作
+</span><span style="color:#6272a4">        */</span>
+        <span style="color:#ff79c6">p</span>:nth-child<span style="color:#ff79c6">(</span><span style="color:#ff79c6">1</span><span style="color:#ff79c6">)</span>{
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">cyan</span>;
+        }
+
+        <span style="color:#6272a4">/*选中父元素下的第一个P元素
+</span><span style="color:#6272a4">				区分类型：加了h1也无妨，他会找到第一个p元素并执行动作
+</span><span style="color:#6272a4">				*/</span>
+        <span style="color:#ff79c6">p</span>:nth-of-type<span style="color:#ff79c6">(</span><span style="color:#ff79c6">1</span><span style="color:#ff79c6">)</span>{
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">blue</span>;
+        }
+    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">style</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">head</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">body</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">h1</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">h1</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">h1</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p1</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p2</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">p3</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">ul</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">li1</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">li2</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">li3</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">li</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">ul</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">body</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">html</span><span style="color:#ff79c6">&gt;</span>
+</code></pre></div><h3 id="24-属性选择器常用">2.4 属性选择器（常用）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">&lt;!</span><span style="color:#ff79c6">DOCTYPE</span> <span style="color:#ff79c6">html</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">html</span> <span style="color:#ff79c6">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">head</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">meta</span> <span style="color:#ff79c6">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">title</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">Title</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">title</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">style</span><span style="color:#ff79c6">&gt;</span>
+        .<span style="color:#50fa7b">demo</span> <span style="color:#ff79c6">a</span>{
+            <span style="color:#ff79c6">float</span>: <span style="color:#ff79c6">left</span>;
+            <span style="color:#6272a4">/*横向排列*/</span>
+            <span style="color:#ff79c6">display</span>: <span style="color:#ff79c6">block</span>;
+            <span style="color:#6272a4">/*变为块*/</span>
+            <span style="color:#ff79c6">height</span>: <span style="color:#bd93f9">50</span><span style="color:#8be9fd">px</span>;
+            <span style="color:#ff79c6">width</span>: <span style="color:#bd93f9">50</span><span style="color:#8be9fd">px</span>;
+            <span style="color:#ff79c6">border-radius</span>: <span style="color:#bd93f9">10</span><span style="color:#8be9fd">px</span>;
+            <span style="color:#6272a4">/*圆角矩形*/</span>
+            <span style="color:#ff79c6">background</span>: <span style="color:#ff79c6">cyan</span>;
+            <span style="color:#6272a4">/*背景颜色*/</span>
+            <span style="color:#ff79c6">text-align</span>: <span style="color:#ff79c6">center</span>;
+            <span style="color:#6272a4">/*字体居中*/</span>
+            <span style="color:#ff79c6">color</span>: <span style="color:#ff79c6">azure</span>;
+            <span style="color:#6272a4">/*字体颜色*/</span>
+            <span style="color:#ff79c6">text-decoration</span>: <span style="color:#ff79c6">none</span>;
+            <span style="color:#6272a4">/*去掉下划线*/</span>
+            <span style="color:#ff79c6">margin-right</span>: <span style="color:#bd93f9">5</span><span style="color:#8be9fd">px</span>;
+            <span style="color:#6272a4">/*向右移动*/</span>
+            <span style="color:#ff79c6">font</span>: <span style="color:#ff79c6">bold</span> <span style="color:#bd93f9">20</span><span style="color:#8be9fd">px</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">50</span><span style="color:#8be9fd">px</span> Arial;
+            <span style="color:#6272a4">/*字体位置，使其在正方形中央*/</span>
+        }
+
+        <span style="color:#6272a4">/*存在ID属性的元素*/</span>
+        <span style="color:#6272a4">/*a[id]{*/</span>
+        <span style="color:#6272a4">/*    background: yellow;*/</span>
+        <span style="color:#6272a4">/*}*/</span>
+
+        <span style="color:#6272a4">/*ID属性为first的元素*/</span>
+        <span style="color:#6272a4">/*a[id=&#34;first&#34;]{*/</span>
+        <span style="color:#6272a4">/*    background: yellow;*/</span>
+        <span style="color:#6272a4">/*}*/</span>
+
+        <span style="color:#6272a4">/*class中有link的元素*/</span>
+        <span style="color:#6272a4">/*a[class*=link]{*/</span>
+        <span style="color:#6272a4">/*    background: yellow;*/</span>
+        <span style="color:#6272a4">/*}*/</span>
+
+        <span style="color:#6272a4">/*选中href属性中以http开头的元素*/</span>
+        <span style="color:#6272a4">/*a[href^=http]{*/</span>
+        <span style="color:#6272a4">/*    background: yellow;*/</span>
+        <span style="color:#6272a4">/*}*/</span>
+
+        <span style="color:#6272a4">/*选中href属性中以pdf结尾的元素*/</span>
+        <span style="color:#6272a4">/*a[href$=pdf]{*/</span>
+        <span style="color:#6272a4">/*    background: yellow;*/</span>
+        <span style="color:#6272a4">/*}*/</span>
+    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">style</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">body</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">p</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;demo&#34;</span><span style="color:#ff79c6">&gt;</span>
+
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.baidu.com&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item first&#34;</span> <span style="color:#ff79c6">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;first&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">1</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item active&#34;</span> <span style="color:#ff79c6">target</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;_blank&#34;</span> <span style="color:#ff79c6">title</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;test&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">2</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;../photo.png&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">3</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;index.html&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">4</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;abc&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">5</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/a.pdf&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">6</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/abc.pdf&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">7</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;abc,doc&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">8</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;abcd.doc&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">9</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">a</span> <span style="color:#ff79c6">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;../receive.jpg&#34;</span><span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;link item last&#34;</span><span style="color:#ff79c6">&gt;</span><span style="color:#ff79c6">10</span><span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">a</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">p</span><span style="color:#ff79c6">&gt;</span>
+
+<span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">body</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">html</span><span style="color:#ff79c6">&gt;</span>
+</code></pre></div><p><em>注：[]中可填写正则表达式</em></p>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p> 「如果这篇文章对你有用,请随意打赏」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="https://dovelee-hub.github.io/"><img src="/img/favicon.png" />Mr.Lee&#39;s Blog</a></span>
+        
+	        <p class="tip"><i></i><span>如果这篇文章对你有用,请随意打赏</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/htmi_learn/" data-toggle="tooltip" data-placement="top" title="HTML">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href=""></a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Mr.Lee&#39;s Blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:958055356@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://user-images.githubusercontent.com/58317994/82021498-81ddbf00-96bd-11ea-84c9-d75115690261.JPG">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/DoveLee-hub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Mr.Lee&#39;s Blog 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
