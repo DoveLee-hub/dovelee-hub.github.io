@@ -6,10 +6,28 @@
     <description>Recent content in Tech on Mr.Lee&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dovelee-hub.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://dovelee-hub.github.io/post/javascript/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dovelee-hub.github.io/post/javascript/</guid>
+      <description>1 什么是JavaScript ##1.1 概述 javascript是一门世界上最流行的脚本语言 2 快速入门 2.1 引入JavaScript 内部标签 外部引入 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html</description>
+    </item>
+    
+    <item>
+      <title>JavaWeb</title>
+      <link>https://dovelee-hub.github.io/post/java_web/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dovelee-hub.github.io/post/java_web/</guid>
+      <description>1. 基本概念 1.1 前言 web开发： 静态web html，css 提供给所有人看的数据始终不会发生变化 动态web 淘宝等 提供给所有人看的数据始终会发生变化</description>
+    </item>
     
     <item>
       <title>CSS3</title>
