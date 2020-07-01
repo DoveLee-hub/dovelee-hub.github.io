@@ -6,10 +6,19 @@
     <description>Recent content on Mr.Lee&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dovelee-hub.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaWeb</title>
+      <link>https://dovelee-hub.github.io/post/java_web/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dovelee-hub.github.io/post/java_web/</guid>
+      <description>1. 基本概念 1.1 前言 web开发： 静态web html，css 提供给所有人看的数据始终不会发生变化 动态web 淘宝等 提供给所有人看的数据始终会发生变化</description>
+    </item>
     
     <item>
       <title>JavaScript</title>
