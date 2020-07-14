@@ -240,8 +240,81 @@
         <li><a href="#55-标记文件夹属性">5.5 标记文件夹属性</a></li>
         <li><a href="#56-在idea中配置tomcat">5.6 在IDEA中配置tomcat</a></li>
         <li><a href="#57-maven右侧边栏">5.7 maven右侧边栏</a></li>
+        <li><a href="#59-maven项目中配置文件资源导出问题">5.9 maven项目中配置文件资源导出问题</a></li>
       </ul>
     </li>
+    <li><a href="#6-servlet">6. Servlet</a>
+      <ul>
+        <li><a href="#61-servlet简介">6.1 Servlet简介</a></li>
+        <li><a href="#62-hello-servlet">6.2 Hello Servlet</a></li>
+        <li><a href="#63-servlet原理">6.3 Servlet原理</a></li>
+        <li><a href="#64-mapping问题">6.4 Mapping问题</a></li>
+        <li><a href="#65-servletcontext">6.5 ServletContext</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-基本概念-1">1. 基本概念</a>
+      <ul>
+        <li><a href="#11-前言-1">1.1 前言</a></li>
+        <li><a href="#12-web应用程序-1">1.2 web应用程序</a></li>
+        <li><a href="#13-静态web-1">1.3 静态web</a></li>
+        <li><a href="#14-动态web-1">1.4 动态web</a></li>
+      </ul>
+    </li>
+    <li><a href="#2web服务器-1">2.web服务器</a>
+      <ul>
+        <li><a href="#21-web技术概论-1">2.1 web技术概论</a></li>
+        <li><a href="#22-web服务器-1">2.2 web服务器</a></li>
+      </ul>
+    </li>
+    <li><a href="#3tomcat-1">3.Tomcat</a>
+      <ul>
+        <li><a href="#31-安装tomcat-1">3.1 安装Tomcat</a></li>
+        <li><a href="#32-配置-1">3.2 配置</a></li>
+        <li><a href="#33-发布一个web网站-1">3.3 发布一个web网站</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-http-1">4. HTTP</a>
+      <ul>
+        <li><a href="#41-什么是http-1">4.1 什么是http</a></li>
+        <li><a href="#42-http的两个时代-1">4.2 HTTP的两个时代</a></li>
+        <li><a href="#43-http请求-1">4.3 HTTP请求</a></li>
+        <li><a href="#44-http响应-1">4.4 HTTP响应</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-maven-1">5. Maven</a>
+      <ul>
+        <li><a href="#51-maven项目架构管理工具-1">5.1 Maven项目架构管理工具</a></li>
+        <li><a href="#52-下载maven并配置环境变量-1">5.2 下载maven并配置环境变量</a></li>
+        <li><a href="#53-创建本地仓库和设置阿里云镜像-1">5.3 创建本地仓库和设置阿里云镜像</a></li>
+        <li><a href="#54-创建maven项目-1">5.4 创建maven项目</a></li>
+        <li><a href="#55-标记文件夹属性-1">5.5 标记文件夹属性</a></li>
+        <li><a href="#56-在idea中配置tomcat-1">5.6 在IDEA中配置tomcat</a></li>
+        <li><a href="#57-maven右侧边栏-1">5.7 maven右侧边栏</a></li>
+        <li><a href="#58-pom文件">5.8 POM文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-servlet-1">6. Servlet</a>
+      <ul>
+        <li><a href="#61-servlet简介-1">6.1 Servlet简介</a></li>
+        <li><a href="#62-hello-servlet-1">6.2 Hello Servlet</a></li>
+        <li><a href="#63-servlet原理-1">6.3 Servlet原理</a></li>
+        <li><a href="#64-mapping问题-1">6.4 Mapping问题</a></li>
+        <li><a href="#65-servletcontext-1">6.5 ServletContext</a></li>
+        <li><a href="#66-httpservletreponse">6.6 HttpServletReponse</a></li>
+        <li><a href="#67-httpservletrequest">6.7 HttpServletRequest</a></li>
+        <li><a href="#7-cookiesession">7. Cookie、Session</a></li>
+        <li><a href="#72-保存会话的两种技术">7.2 保存会话的两种技术</a></li>
+        <li><a href="#73-cookie">7.3 Cookie</a></li>
+        <li><a href="#74-session重点">7.4 Session（重点）</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-mvc三层架构">8. MVC三层架构</a>
+      <ul>
+        <li><a href="#81早期架构">8.1早期架构</a></li>
+        <li><a href="#82-mvc三层架构">8.2 MVC三层架构</a></li>
+      </ul>
+    </li>
+    <li><a href="#11-filter">11. Filter</a></li>
   </ul>
 </nav>
                 
@@ -652,7 +725,1235 @@ export JAVA_HOME<span style="color:#ff79c6">=/</span>Library<span style="color:#
         <span style="color:#ff79c6">&lt;/resource&gt;</span>
     <span style="color:#ff79c6">&lt;/resources&gt;</span>
 <span style="color:#ff79c6">&lt;/build&gt;</span>
-</code></pre></div>
+</code></pre></div><h2 id="59-maven项目中配置文件资源导出问题">5.9 maven项目中配置文件资源导出问题</h2>
+<p>比如在后续6.5.4中，如果不在pom文件中加入这段，则在java文件夹下创建的properties文件无法导出到target中</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#ff79c6">&lt;build&gt;</span>
+        <span style="color:#ff79c6">&lt;resources&gt;</span>
+            <span style="color:#ff79c6">&lt;resource&gt;</span>
+                <span style="color:#ff79c6">&lt;directory&gt;</span>src/main/resources<span style="color:#ff79c6">&lt;/directory&gt;</span>
+                <span style="color:#ff79c6">&lt;includes&gt;</span>
+                    <span style="color:#ff79c6">&lt;include&gt;</span>**/*.properties<span style="color:#ff79c6">&lt;/include&gt;</span>
+                    <span style="color:#ff79c6">&lt;include&gt;</span>**/*.xml<span style="color:#ff79c6">&lt;/include&gt;</span>
+                <span style="color:#ff79c6">&lt;/includes&gt;</span>
+                <span style="color:#ff79c6">&lt;filtering&gt;</span>true<span style="color:#ff79c6">&lt;/filtering&gt;</span>
+            <span style="color:#ff79c6">&lt;/resource&gt;</span>
+            <span style="color:#ff79c6">&lt;resource&gt;</span>
+                <span style="color:#ff79c6">&lt;directory&gt;</span>src/main/java<span style="color:#ff79c6">&lt;/directory&gt;</span>
+                <span style="color:#ff79c6">&lt;includes&gt;</span>
+                    <span style="color:#ff79c6">&lt;include&gt;</span>**/*.properties<span style="color:#ff79c6">&lt;/include&gt;</span>
+                    <span style="color:#ff79c6">&lt;include&gt;</span>**/*.xml<span style="color:#ff79c6">&lt;/include&gt;</span>
+                <span style="color:#ff79c6">&lt;/includes&gt;</span>
+                <span style="color:#ff79c6">&lt;filtering&gt;</span>true<span style="color:#ff79c6">&lt;/filtering&gt;</span>
+            <span style="color:#ff79c6">&lt;/resource&gt;</span>
+        <span style="color:#ff79c6">&lt;/resources&gt;</span>
+    <span style="color:#ff79c6">&lt;/build&gt;</span>
+</code></pre></div><h1 id="6-servlet">6. Servlet</h1>
+<h2 id="61-servlet简介">6.1 Servlet简介</h2>
+<ul>
+<li>Servlet就是sun公司开发的动态web的一门技术</li>
+<li>sun在这些api中提供了一个接口叫做：Servlet，如果你想开发一个servlet程序，只需要完成两个小步骤
+<ul>
+<li>编写一个类实现servlet接口</li>
+<li>把开发好的Java类部署到web服务器中</li>
+</ul>
+</li>
+</ul>
+<p><strong>把实现了servlet接口的Java程序叫做servlet</strong></p>
+<h2 id="62-hello-servlet">6.2 Hello Servlet</h2>
+<p>Servlet接口Sun公司有两个默认的实现类：HttpServlet（它继承的GenericServlet），GenericServlet</p>
+<ol>
+<li>
+<p>构建一个Maven项目，删除里面的src目录，以后我们的学习就在这个项目里面建立module（子工程），这个空的工程就是Maven主工程</p>
+<p>在主工程pom中添加servlet API和JSP的依赖</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;dependencies&gt;</span>
+        <span style="color:#6272a4">&lt;!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api --&gt;</span>
+        <span style="color:#ff79c6">&lt;dependency&gt;</span>
+            <span style="color:#ff79c6">&lt;groupId&gt;</span>javax.servlet<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+            <span style="color:#ff79c6">&lt;artifactId&gt;</span>javax.servlet-api<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+            <span style="color:#ff79c6">&lt;version&gt;</span>3.1.0<span style="color:#ff79c6">&lt;/version&gt;</span>
+            <span style="color:#ff79c6">&lt;scope&gt;</span>provided<span style="color:#ff79c6">&lt;/scope&gt;</span>
+        <span style="color:#ff79c6">&lt;/dependency&gt;</span>
+   
+        <span style="color:#6272a4">&lt;!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api --&gt;</span>
+        <span style="color:#ff79c6">&lt;dependency&gt;</span>
+            <span style="color:#ff79c6">&lt;groupId&gt;</span>javax.servlet.jsp<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+            <span style="color:#ff79c6">&lt;artifactId&gt;</span>jsp-api<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+            <span style="color:#ff79c6">&lt;version&gt;</span>2.1<span style="color:#ff79c6">&lt;/version&gt;</span>
+            <span style="color:#ff79c6">&lt;scope&gt;</span>provided<span style="color:#ff79c6">&lt;/scope&gt;</span>
+        <span style="color:#ff79c6">&lt;/dependency&gt;</span>
+    <span style="color:#ff79c6">&lt;/dependencies&gt;</span>
+</code></pre></div></li>
+<li>
+<p>关于maven父子工程的理解</p>
+<p>父项目中会有：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;modules&gt;</span>
+        <span style="color:#ff79c6">&lt;module&gt;</span>Servlet-01<span style="color:#ff79c6">&lt;/module&gt;</span>
+    <span style="color:#ff79c6">&lt;/modules&gt;</span>
+</code></pre></div><p>子项目中会有：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#ff79c6">&lt;parent&gt;</span>
+    <span style="color:#ff79c6">&lt;groupId&gt;</span>com.lee<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+    <span style="color:#ff79c6">&lt;artifactId&gt;</span>webapp-02-Servlet<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+    <span style="color:#ff79c6">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#ff79c6">&lt;/version&gt;</span>
+  <span style="color:#ff79c6">&lt;/parent&gt;</span>
+//有可能需要在pom中手动填写
+</code></pre></div><p>父项目中的Jar包子项目可以直接使用</p>
+</li>
+</ol>
+<p>构建servlet子工程：主工程文件夹上右键，通过maven建立一个webapp，然后在main文件夹中手动添加Java和resource文件夹</p>
+<ol start="3">
+<li>
+<p>Maven环境优化</p>
+<ol>
+<li>
+<p>修改web.xml修改为最新的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#ff79c6">&lt;web-app</span> <span style="color:#50fa7b">xmlns=</span><span style="color:#f1fa8c">&#34;http://xmlns.jcp.org/xml/ns/javaee&#34;</span>
+         <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span style="color:#50fa7b">xsi:schemaLocation=</span><span style="color:#f1fa8c">&#34;http://xmlns.jcp.org/xml/ns/javaee
+</span><span style="color:#f1fa8c">          http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&#34;</span>
+         <span style="color:#50fa7b">version=</span><span style="color:#f1fa8c">&#34;4.0&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;/web-app&gt;</span>
+</code></pre></div></li>
+<li>
+<p>将maven结构搭建完整</p>
+</li>
+</ol>
+</li>
+<li>
+<p>编写一个servlet程序</p>
+<ol>
+<li>
+<p>编写一个普通类</p>
+</li>
+<li>
+<p>实现servlet接口，这里我们直接继承HttpServlet</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">import</span> javax.servlet.ServletException<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> javax.servlet.http.HttpServlet<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> javax.servlet.http.HttpServletRequest<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> javax.servlet.http.HttpServletResponse<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.io.IOException<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">import</span> java.io.PrintWriter<span style="color:#ff79c6">;</span>
+      
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">helloservlet</span> <span style="color:#8be9fd;font-style:italic">extends</span> HttpServlet <span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        PrintWriter writer <span style="color:#ff79c6">=</span> resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getWriter</span><span style="color:#ff79c6">();</span>
+        writer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">print</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;hello servlet&#34;</span><span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+      
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doPost</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        <span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">,</span> resp<span style="color:#ff79c6">);</span>
+      <span style="color:#6272a4">//doGet和doPost在此没啥区别，所以调用其中一个就行了，故当调用dopost时，让他去调doget就行了
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>idea中调出“重写”的快捷键。ctrl+enter然后选择重写</p>
+</blockquote>
+<ol start="5">
+<li>
+<p>编写Servlet映射</p>
+<p>为什么需要映射：我们写的是Java程序，但是需要通过浏览器访问，而浏览器需要连接web服务器，所以我们需要在web中注册我们写的servlet，还需要给他一个浏览器能够访问的路径</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#6272a4">&lt;!--    配制web.xml是Webapp的核心--&gt;</span>
+
+<span style="color:#6272a4">&lt;!--    注册servlet--&gt;</span>
+    <span style="color:#ff79c6">&lt;servlet&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#6272a4">&lt;!--servlet名称（任意写，但要与下面的servlet-mapping相同）--&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-class&gt;</span>com.lee.servlet.helloservlet<span style="color:#ff79c6">&lt;/servlet-class&gt;</span>
+        <span style="color:#6272a4">&lt;!-- 被注册为servlet的Java类--&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet&gt;</span>
+<span style="color:#6272a4">&lt;!--    servlet的请求路径（映射）--&gt;</span>
+    <span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#6272a4">&lt;!--servlet名称（任意写，但要与下面的servlet-mapping相同）--&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+        <span style="color:#6272a4">&lt;!--虚拟路径 在URL框中输入localhost:8080/Servlet_01_war/hello就能找到我的servlet        其中的/Servlet_01_war是本项目默认的Tomcat虚拟路径，也可以修改--&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><ol start="6">
+<li>
+<p>配制Tomcat</p>
+<p>参考5.6</p>
+</li>
+</ol>
+<h2 id="63-servlet原理">6.3 Servlet原理</h2>
+<p>Servlet执行原理</p>
+<p><img src="https://img-blog.csdn.net/20170802174007533" alt=""></p>
+<p>Servlet原理图</p>
+<p><img src="https://img-blog.csdn.net/20170803180252641" alt=""></p>
+<h2 id="64-mapping问题">6.4 Mapping问题</h2>
+<ol>
+<li>一个Servlet可以指定一个映射路径</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><ol start="2">
+<li>一个Servlet可以指定多个映射路径</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+<span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello1<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+<span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello2<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+<span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello3<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><ol start="3">
+<li>默认请求路径（尽量不去用）</li>
+</ol>
+<p>注：会把首页干掉</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/*<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><p>*是通配符</p>
+<ol start="4">
+<li>可以自定义后缀实现请求映射</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>*.dovelee<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><p>注意：*前面不能加任何项目映射路径</p>
+<p>但在访问的时候，只要以*.dovelee结尾，都能访问到，比如123/abcdefg.dovelee</p>
+<ol start="6">
+<li>
+<p>优先级问题</p>
+<p>指定了固有的映射路径优先级最高，如果找不到，则会走默认映射路径（/hello  &gt;   /*）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+<span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>error<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/*<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div></li>
+</ol>
+<h2 id="65-servletcontext">6.5 ServletContext</h2>
+<p>web容器在启动的时候，它会为每个web程序都创建一个对应的ServletContext对象，它代表了每一个web应用：</p>
+<h3 id="1共享数据">1.共享数据</h3>
+<pre><code>title:       &quot;JavaWeb&quot;
+subtitle:    &quot;&quot;
+description: &quot;&quot;
+date:        2020-07-01
+author:      &quot;Zhi Li&quot;
+image:       &quot;&quot;
+tags:        []
+categories:  [&quot;Tech&quot; ]
+</code></pre><h1 id="1-基本概念-1">1. 基本概念</h1>
+<h2 id="11-前言-1">1.1 前言</h2>
+<p>web开发：</p>
+<ul>
+<li>静态web
+<ul>
+<li>html，css</li>
+<li>提供给所有人看的数据始终不会发生变化</li>
+</ul>
+</li>
+<li>动态web
+<ul>
+<li>淘宝等</li>
+<li>提供给所有人看的数据始终会发生变化，每个人在不同的时间，不同的地点看到的信息各不相同</li>
+<li>技术栈：Servlet/JSP，ASP，PHP</li>
+</ul>
+</li>
+</ul>
+<p>在Java中，动态web资源开发的技术统称为Javaweb</p>
+<h2 id="12-web应用程序-1">1.2 web应用程序</h2>
+<p>web应用程序：可以提供浏览器访问的程序</p>
+<ul>
+<li>a.html，b.html&hellip;&hellip;多个web资源，这些web自愿可以被外界访问，对外界提供服务</li>
+<li>能访问到的任何一个页面或者资源，都存在于这个世界上某一个角落的计算机上</li>
+<li>URL来定位这台计算机</li>
+<li>这个统一的web资源会被放在同一个文件夹下，web应用程序-&gt;Tomact：服务器</li>
+<li>一个web应用由多部分组成（静态web，动态web）
+<ul>
+<li>HTML CSS JS</li>
+<li>Jsp servlet</li>
+<li>java程序</li>
+<li>jar包</li>
+<li>配置文件（Properties·）</li>
+</ul>
+</li>
+</ul>
+<p>web应用程序编写完毕后，若想提供给外界访问，需要一个服务器来统一管理</p>
+<h2 id="13-静态web-1">1.3 静态web</h2>
+<ul>
+<li>*.html *.htm这些都是网页的后缀，如果服务器上一直存在这些东西，我们就可以直接进行读取</li>
+<li>存在的缺点
+<ul>
+<li>web页面无法动态更新，所有用户看到的都是同一个页面
+<ul>
+<li>可以通过JavaScript实现伪动态</li>
+</ul>
+</li>
+<li>它无法和数据库交互
+<ul>
+<li>数据无法持久化</li>
+<li>用户无法交互</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="14-动态web-1">1.4 动态web</h2>
+<p>页面会动态展示，web的页面展示的效果因人而异</p>
+<p><img src="https://raw.githubusercontent.com/DoveLee-hub/blogimg/master/img/%E6%88%AA%E5%B1%8F2020-06-18%20%E4%B8%8B%E5%8D%8810.41.52.jpg" alt="img"></p>
+<p><strong>缺点</strong></p>
+<ul>
+<li>假如服务器的动态web资源出现了错误，我们需要重新编写我们的后台程序，重新发布</li>
+</ul>
+<p><strong>优点</strong></p>
+<ul>
+<li>web页面可以动态更新，所有用户看到的都不是同一个页面</li>
+<li>它可以与数据库交互（数据持久化：注册，商品信息等）</li>
+</ul>
+<h1 id="2web服务器-1">2.web服务器</h1>
+<h2 id="21-web技术概论-1">2.1 web技术概论</h2>
+<p>ASP：</p>
+<ul>
+<li>微软：国内最早流行的就是ASP</li>
+<li>在HTML中键入了VB的脚本。ASP+DOM</li>
+<li>在ASP开发中，基本都有几千行的业务代码，页面极其混乱，维护成本高</li>
+</ul>
+<p>PHP：</p>
+<ul>
+<li>开发速度快，功能强大，跨平台，代码简单</li>
+<li>无法承载大访问量，高并发的情况</li>
+</ul>
+<p>JSP/Servlet：</p>
+<p>B/S：浏览器和服务器</p>
+<p>C/S：客户端和服务器</p>
+<ul>
+<li>sun公司主推的B/S架构</li>
+<li>基于Java语言的</li>
+<li>可以承载高并发，且高可用，高性能</li>
+<li>语法与ASP像（加强市场竞争度）</li>
+</ul>
+<h2 id="22-web服务器-1">2.2 web服务器</h2>
+<p><strong>服务器是一种被动的操作，用来处理用户的一些请求和给用户一些响应信息</strong></p>
+<p>IIS:</p>
+<ul>
+<li>微软的，ASP，Windows自带</li>
+</ul>
+<p>Tomcat：</p>
+<ul>
+<li>适合初学者</li>
+<li>运行JSP页面和Servlet</li>
+<li>最新版本为9.0</li>
+</ul>
+<h1 id="3tomcat-1">3.Tomcat</h1>
+<h2 id="31-安装tomcat-1">3.1 安装Tomcat</h2>
+<p><a href="https://www.jianshu.com/p/69496fb3495e">https://www.jianshu.com/p/69496fb3495e</a></p>
+<p>开启Tomcat（先要到Tomcat的bin文件夹下 cd /Library/apache-tomcat-9.0.36）</p>
+<blockquote>
+<p>sudo sh ./startup.sh</p>
+</blockquote>
+<p>在localhost:8080中打开</p>
+<p>关闭Tomcat</p>
+<blockquote>
+<p>sh ./shutdown.sh</p>
+</blockquote>
+<h2 id="32-配置-1">3.2 配置</h2>
+<p>网站文件存放在/webapp中</p>
+<p>核心配置文件：config/server.xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#ff79c6">&lt;Connector</span> <span style="color:#50fa7b">port=</span><span style="color:#f1fa8c">&#34;8080&#34;</span> <span style="color:#50fa7b">protocol=</span><span style="color:#f1fa8c">&#34;HTTP/1.1&#34;</span>
+               <span style="color:#50fa7b">connectionTimeout=</span><span style="color:#f1fa8c">&#34;20000&#34;</span>
+               <span style="color:#50fa7b">redirectPort=</span><span style="color:#f1fa8c">&#34;8443&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+
+     //可以修改端口号
+<span style="color:#ff79c6">&lt;Host</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;localhost&#34;</span>  <span style="color:#50fa7b">appBase=</span><span style="color:#f1fa8c">&#34;webapps&#34;</span>
+            <span style="color:#50fa7b">unpackWARs=</span><span style="color:#f1fa8c">&#34;true&#34;</span> <span style="color:#50fa7b">autoDeploy=</span><span style="color:#f1fa8c">&#34;true&#34;</span><span style="color:#ff79c6">&gt;</span>
+  //可以配置主机名称（默认localhost）和网站应用默认存放位置（默认webapps）
+  //注：默认主机名称localhost对应127.0.0.1，若想改变主机名，只在Host中修改是不够的，需要修改系统文件（C:\Windows\System32\drivers\etc\hosts），将新的名称指向127.0.0.1      
+  //例如：我将Host中的localhost改为www.lizhi.com，在浏览器中输入后，并不能找到我的主机，因为系统底层还是localhost对应主机ip
+</code></pre></div><p>面试题：请你谈谈网站是如何进行访问的</p>
+<ol>
+<li>
+<p>输入域名（如<a href="www.baidu.com">www.baidu.com</a>），回车</p>
+</li>
+<li>
+<p>检查本机的<em>C:\Windows\System32\drivers\etc\hosts</em>配置文件下有没有这个域名的映射</p>
+<ul>
+<li>
+<p>有：直接返回对应的IP地址，如果这个地址中有我们需要访问的web文件，可以直接访问</p>
+<pre><code>127.0.0.1      localhost
+//   ip           域名
+</code></pre></li>
+<li>
+<p>没有：去DNS服务器（全世界的域名都存在这里，可以找到域名对应的IP），找到就返回，找不到就报错</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="33-发布一个web网站-1">3.3 发布一个web网站</h2>
+<p>将自己写的网站放到服务器（Tomcat）的指定web应用的文件夹（webapps）下，就可以访问了</p>
+<p>网站应有的结构</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">--</span>webapps <span style="color:#ff79c6">:</span> Tomcat服务器的web目录
+  <span style="color:#ff79c6">-</span>ROOT
+  <span style="color:#ff79c6">-</span>webstudy <span style="color:#ff79c6">:</span> 网站的目录名
+    <span style="color:#ff79c6">-</span> WEB<span style="color:#ff79c6">-</span>INF
+      <span style="color:#ff79c6">-</span>classes <span style="color:#ff79c6">:</span> java程序
+      <span style="color:#ff79c6">-</span>lib <span style="color:#ff79c6">:</span> web应用所以来的jar包
+      <span style="color:#ff79c6">-</span>web<span style="color:#ff79c6">.</span><span style="color:#50fa7b">xml</span> <span style="color:#ff79c6">:</span> 网站配置文件
+    <span style="color:#ff79c6">-</span> index<span style="color:#ff79c6">.</span><span style="color:#50fa7b">html</span> 默认的首页
+    <span style="color:#ff79c6">-</span> <span style="color:#8be9fd;font-style:italic">static</span>
+        <span style="color:#ff79c6">-</span>css
+          <span style="color:#ff79c6">-</span>style<span style="color:#ff79c6">.</span><span style="color:#50fa7b">css</span>
+        <span style="color:#ff79c6">-</span>js
+        <span style="color:#ff79c6">-</span>img
+    <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">......</span>
+</code></pre></div><h1 id="4-http-1">4. HTTP</h1>
+<h2 id="41-什么是http-1">4.1 什么是http</h2>
+<p>HTTP（超文本传输协议）是一个简单的请求-响应协议，它通常运行于TCP之上</p>
+<ul>
+<li>文本：HTML，字符串&hellip;&hellip;</li>
+<li>超文本：图片，音乐，视频 ，定位，地图&hellip;&hellip;</li>
+<li>HTTP端口：80  HTTPS端口：443</li>
+</ul>
+<h2 id="42-http的两个时代-1">4.2 HTTP的两个时代</h2>
+<ul>
+<li>HTTP 1.0
+<ul>
+<li>HTTP/1.0：客户端可以与web服务器连接后，只能获得一个web资源，之后断开连接</li>
+</ul>
+</li>
+<li>HTTP 2.0
+<ul>
+<li>HTTP/1.1：客户端可以与web服务器连接后，只能获得多个web资源</li>
+</ul>
+</li>
+</ul>
+<h2 id="43-http请求-1">4.3 HTTP请求</h2>
+<ul>
+<li>客户端&mdash;发请求（Request）&mdash;服务器</li>
+</ul>
+<p>哔哩哔哩：</p>
+<pre><code>Request URL: https://www.baidu.com/  //请求地址
+Request Method: GET   //GET/POST方法
+Status Code: 200 OK  //状态码
+Remote Address: 14.215.177.38:443  //远程ip:端口号
+Referrer Policy: unsafe-url //referrer 属性可返回载入当前文档的文档的 URL unsafe-url无论是同源请求还是非同源请求，都发送完整的 URL（移除参数信息之后）作为引用地址。（最不安全的策略了）
+Accept: text/html
+Accept-Encoding: gzip, deflate, br //编码
+Accept-Language: zh-CN,zh;q=0.9  //语言
+Cache-Control: max-age=0  //缓存控制
+Connection: keep-alive
+</code></pre><p>1.请求行</p>
+<ul>
+<li>请求行中的请求方法：GET</li>
+<li>请求方法：<strong>Get</strong>，<strong>Post</strong>，Head，Delete，Put，Tract&hellip;&hellip;
+<ul>
+<li>get：请求能携带的参数比较少，大小有限制，会在浏览器的URL地址栏里显示数据内容，不安全，但是高效</li>
+<li>post：请求能携带的参数没有限制，大小没有限制，不会在浏览器的URL地址栏里显示数据内容，安全，但是不高效</li>
+</ul>
+</li>
+</ul>
+<p><em>由于目前通讯技术飞速发展，post的“不高效”在4G 5G时代显得就微不足道了</em></p>
+<p>2.消息头</p>
+<pre><code>Accept: 告诉浏览器他所支持的数据类型
+Accept-Encoding: 支持哪种编码格式 GBK UTF-8 GB2312等
+Accept-Language: 告诉浏览器它的语言环境
+Cache-Control: 缓存控制
+Connection: 告诉浏览器，请求完成时是保持连接还是断开
+HOST：主机
+  等等......
+</code></pre><h2 id="44-http响应-1">4.4 HTTP响应</h2>
+<ul>
+<li>服务器&mdash;响应&mdash;客户端</li>
+</ul>
+<p>百度：</p>
+<pre><code>Cache-Control: private  //缓存控制
+Connection: keep-alive  // 连接
+Content-Encoding: gzip  //编码
+Content-Type: text/html;charset=utf-8
+Date: Wed, 01 Jul 2020 00:47:12 GMT
+Expires: Wed, 01 Jul 2020 00:46:38 GMT
+Server: BWS/1.1
+Set-Cookie: BDSVRTM=0; path=/    //cookie设置
+Set-Cookie: BD_HOME=1; path=/
+X-Ua-Compatible: IE=Edge,chrome=1   //浏览器设置
+</code></pre><p>1.响应体</p>
+<pre><code>Accept: 告诉浏览器他所支持的数据类型
+Accept-Encoding: 支持哪种编码格式 GBK UTF-8 GB2312等
+Accept-Language: 告诉浏览器它的语言环境
+Cache-Control: 缓存控制
+Connection: 告诉浏览器，请求完成时是保持连接还是断开
+HOST：主机
+Refrush: 告诉客户端，多久刷新一次
+Location：让网页重新定位
+</code></pre><p>2.响应状态码</p>
+<p>200：请求响应成功</p>
+<p>3xx：请求重定向</p>
+<p><em>重定向：你重新到我给你的新位置去</em></p>
+<p>4xx：资源不存在</p>
+<p>5xx：服务器代码错误</p>
+<p>经常遇到的：200 404 500 502(网关错误)</p>
+<p><strong>常见面试题：当你的浏览器地址栏输入地址并回车到页面能够展示，经历了什么</strong></p>
+<h1 id="5-maven-1">5. Maven</h1>
+<p>为什么要学习Maven？</p>
+<ol>
+<li>
+<p>在Javaweb开发中，需要使用大量的jar包，我们需要手动导入</p>
+</li>
+<li>
+<p>如何能够让一个东西帮我们自动导入和配置jar包</p>
+<p>由此，Maven诞生了！</p>
+</li>
+</ol>
+<h2 id="51-maven项目架构管理工具-1">5.1 Maven项目架构管理工具</h2>
+<p>我们目前就是用来就是方便导入jar包的</p>
+<p>Maven核心思想：<strong>约定大于配置</strong></p>
+<ul>
+<li>有约束，不要去违反</li>
+</ul>
+<p>Maven会规定好你该如何去编写我们的Java代码，必须按照这个规范来</p>
+<h2 id="52-下载maven并配置环境变量-1">5.2 下载maven并配置环境变量</h2>
+<p>建议百度</p>
+<pre><code>MAVEN_HOME=/Library/apache-maven-3.6.3
+PATH=$MAVEN_HOME/bin:$PATH
+export MAVEN_HOME 
+export PATH
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-13.jdk/Contents/Home
+</code></pre><p>我的Mac是这样配置的 不但要配置maven路径，还要配置maven下的bin文件夹路径</p>
+<h2 id="53-创建本地仓库和设置阿里云镜像-1">5.3 创建本地仓库和设置阿里云镜像</h2>
+<p>先在maven文件夹中创建仓库文件夹，然后在conf中的setting.xml进行配置</p>
+<pre><code>&lt;localRepository&gt;/Library/apache-maven-3.6.3/Maven_repo&lt;/localRepository&gt;
+//设置阿里云镜像
+&lt;mirror&gt;
+    &lt;id&gt;nexus-aliyun&lt;/id&gt;
+    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;name&gt;Nexus aliyun&lt;/name&gt;
+    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
+    &lt;/mirror&gt;
+</code></pre><h2 id="54-创建maven项目-1">5.4 创建maven项目</h2>
+<p><img src="https://user-images.githubusercontent.com/58317994/86271304-3cd70300-bbff-11ea-84be-ece4644e8cfc.jpg" alt="img"></p>
+<p><img src="https://user-images.githubusercontent.com/58317994/86271282-32b50480-bbff-11ea-807e-ba91e4db0598.jpg" alt="img"></p>
+<p><img src="https://user-images.githubusercontent.com/58317994/86270727-4613a000-bbfe-11ea-85bf-4aabbbaecab0.jpg" alt="img"></p>
+<h2 id="55-标记文件夹属性-1">5.5 标记文件夹属性</h2>
+<p>当我创建一个java文件夹时，他在idea左侧是灰色的，且不能新建class，这是因为它还未被标记为源码文件夹</p>
+<p><img src="https://user-images.githubusercontent.com/58317994/86273598-1d41d980-bc03-11ea-8e21-9de7652daf40.jpg" alt="img"></p>
+<h2 id="56-在idea中配置tomcat-1">5.6 在IDEA中配置tomcat</h2>
+<p><img src="https://user-images.githubusercontent.com/58317994/86276043-ca6a2100-bc06-11ea-920e-974a35fbff67.jpg" alt="img"></p>
+<p><img src="https://user-images.githubusercontent.com/58317994/86276052-cfc76b80-bc06-11ea-88bd-38f0dc2757e3.jpg" alt="img"></p>
+<p><img src="https://user-images.githubusercontent.com/58317994/86276070-d48c1f80-bc06-11ea-9b7e-67b43227bed1.jpg" alt="img"></p>
+<p><em>注意：记得将maven的conf文件夹中Catalina文件夹及其中内容授予权限，否则会报错</em></p>
+<h2 id="57-maven右侧边栏-1">5.7 maven右侧边栏</h2>
+<p><img src="https://user-images.githubusercontent.com/58317994/86276673-dc988f00-bc07-11ea-8b7f-c877308e3cde.jpg" alt="img"></p>
+<p>“生命周期”就是maven命令行操作</p>
+<p>“插件”实际上还是命令行操作的那些功能，只不过可拔插（随便删除和添加）</p>
+<p>“依赖”就是jar包的集合</p>
+<p><strong>工具栏中，扳手左侧的左侧那个小工具，可以生成maven的目录树</strong></p>
+<h2 id="58-pom文件">5.8 POM文件</h2>
+<p>pom.xml是maven的核心配置文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+
+<span style="color:#6272a4">&lt;!--maven版本和头文件--&gt;</span>
+<span style="color:#ff79c6">&lt;project</span> <span style="color:#50fa7b">xmlns=</span><span style="color:#f1fa8c">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+  <span style="color:#50fa7b">xsi:schemaLocation=</span><span style="color:#f1fa8c">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;modelVersion&gt;</span>4.0.0<span style="color:#ff79c6">&lt;/modelVersion&gt;</span>
+<span style="color:#6272a4">&lt;!--这里就是我们创建项目时设置的GAV--&gt;</span>
+  <span style="color:#ff79c6">&lt;groupId&gt;</span>com.lee<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+  <span style="color:#ff79c6">&lt;artifactId&gt;</span>webapp-01-maven<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+  <span style="color:#ff79c6">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#ff79c6">&lt;/version&gt;</span>
+
+<span style="color:#6272a4">&lt;!--  package：项目的打包方式--&gt;</span>
+<span style="color:#6272a4">&lt;!--  jar:java应用--&gt;</span>
+<span style="color:#6272a4">&lt;!--  war：Javaweb应用--&gt;</span>
+  <span style="color:#ff79c6">&lt;packaging&gt;</span>war<span style="color:#ff79c6">&lt;/packaging&gt;</span>
+
+  <span style="color:#ff79c6">&lt;name&gt;</span>webapp-01-maven Maven Webapp<span style="color:#ff79c6">&lt;/name&gt;</span>
+  <span style="color:#6272a4">&lt;!-- FIXME change it to the project&#39;s website --&gt;</span>
+  <span style="color:#ff79c6">&lt;url&gt;</span>http://www.example.com<span style="color:#ff79c6">&lt;/url&gt;</span>
+
+<span style="color:#6272a4">&lt;!--  配置--&gt;</span>
+  <span style="color:#ff79c6">&lt;properties&gt;</span>
+<span style="color:#6272a4">&lt;!--    项目的默认构建编码--&gt;</span>
+    <span style="color:#ff79c6">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#ff79c6">&lt;/project.build.sourceEncoding&gt;</span>
+<span style="color:#6272a4">&lt;!--    编译后输出的版本--&gt;</span>
+    <span style="color:#ff79c6">&lt;maven.compiler.source&gt;</span>1.7<span style="color:#ff79c6">&lt;/maven.compiler.source&gt;</span>
+    <span style="color:#ff79c6">&lt;maven.compiler.target&gt;</span>1.7<span style="color:#ff79c6">&lt;/maven.compiler.target&gt;</span>
+  <span style="color:#ff79c6">&lt;/properties&gt;</span>
+
+<span style="color:#6272a4">&lt;!--  项目依赖--&gt;</span>
+  <span style="color:#ff79c6">&lt;dependencies&gt;</span>
+<span style="color:#6272a4">&lt;!--    具体依赖的jar包配置文件--&gt;</span>
+    <span style="color:#ff79c6">&lt;dependency&gt;</span>
+      <span style="color:#ff79c6">&lt;groupId&gt;</span>junit<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+      <span style="color:#ff79c6">&lt;artifactId&gt;</span>junit<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+      <span style="color:#ff79c6">&lt;version&gt;</span>4.11<span style="color:#ff79c6">&lt;/version&gt;</span>
+      <span style="color:#ff79c6">&lt;scope&gt;</span>test<span style="color:#ff79c6">&lt;/scope&gt;</span>
+    <span style="color:#ff79c6">&lt;/dependency&gt;</span>
+  <span style="color:#ff79c6">&lt;/dependencies&gt;</span>
+
+<span style="color:#6272a4">&lt;!--  项目构建用的东西--&gt;</span>
+  <span style="color:#ff79c6">&lt;build&gt;</span>
+    <span style="color:#ff79c6">&lt;finalName&gt;</span>webapp-01-maven<span style="color:#ff79c6">&lt;/finalName&gt;</span>
+    <span style="color:#ff79c6">&lt;pluginManagement&gt;</span><span style="color:#6272a4">&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;</span>
+      <span style="color:#ff79c6">&lt;plugins&gt;</span>
+        <span style="color:#ff79c6">&lt;plugin&gt;</span>
+          <span style="color:#ff79c6">&lt;artifactId&gt;</span>maven-clean-plugin<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+          <span style="color:#ff79c6">&lt;version&gt;</span>3.1.0<span style="color:#ff79c6">&lt;/version&gt;</span>
+        <span style="color:#ff79c6">&lt;/plugin&gt;</span>
+        <span style="color:#6272a4">&lt;!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging --&gt;</span>
+        <span style="color:#ff79c6">&lt;plugin&gt;</span>
+          <span style="color:#ff79c6">&lt;artifactId&gt;</span>maven-resources-plugin<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+          <span style="color:#ff79c6">&lt;version&gt;</span>3.0.2<span style="color:#ff79c6">&lt;/version&gt;</span>
+        <span style="color:#ff79c6">&lt;/plugin&gt;</span>
+        <span style="color:#ff79c6">&lt;plugin&gt;</span>
+          <span style="color:#ff79c6">&lt;artifactId&gt;</span>maven-compiler-plugin<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+          <span style="color:#ff79c6">&lt;version&gt;</span>3.8.0<span style="color:#ff79c6">&lt;/version&gt;</span>
+        <span style="color:#ff79c6">&lt;/plugin&gt;</span>
+        <span style="color:#ff79c6">&lt;plugin&gt;</span>
+          <span style="color:#ff79c6">&lt;artifactId&gt;</span>maven-surefire-plugin<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+          <span style="color:#ff79c6">&lt;version&gt;</span>2.22.1<span style="color:#ff79c6">&lt;/version&gt;</span>
+        <span style="color:#ff79c6">&lt;/plugin&gt;</span>
+        <span style="color:#ff79c6">&lt;plugin&gt;</span>
+          <span style="color:#ff79c6">&lt;artifactId&gt;</span>maven-war-plugin<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+          <span style="color:#ff79c6">&lt;version&gt;</span>3.2.2<span style="color:#ff79c6">&lt;/version&gt;</span>
+        <span style="color:#ff79c6">&lt;/plugin&gt;</span>
+        <span style="color:#ff79c6">&lt;plugin&gt;</span>
+          <span style="color:#ff79c6">&lt;artifactId&gt;</span>maven-install-plugin<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+          <span style="color:#ff79c6">&lt;version&gt;</span>2.5.2<span style="color:#ff79c6">&lt;/version&gt;</span>
+        <span style="color:#ff79c6">&lt;/plugin&gt;</span>
+        <span style="color:#ff79c6">&lt;plugin&gt;</span>
+          <span style="color:#ff79c6">&lt;artifactId&gt;</span>maven-deploy-plugin<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+          <span style="color:#ff79c6">&lt;version&gt;</span>2.8.2<span style="color:#ff79c6">&lt;/version&gt;</span>
+        <span style="color:#ff79c6">&lt;/plugin&gt;</span>
+      <span style="color:#ff79c6">&lt;/plugins&gt;</span>
+    <span style="color:#ff79c6">&lt;/pluginManagement&gt;</span>
+  <span style="color:#ff79c6">&lt;/build&gt;</span>
+<span style="color:#ff79c6">&lt;/project&gt;</span>
+</code></pre></div><p>在dependencies中导入dependence（所需的包可以在网上查dependence代码），就会自动导入他所依赖的所有包</p>
+<p>由于maven的规定很死，所以可能由于它只规定了项目中可以有Java，假如在其中加入了xml文件等，会出现导出失败的错误，解决方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#6272a4">&lt;!--在pom.xml的build中配置resources,来防止我们资源导出失败的问题--&gt;</span>
+<span style="color:#ff79c6">&lt;build&gt;</span>
+    <span style="color:#ff79c6">&lt;resources&gt;</span>
+        <span style="color:#ff79c6">&lt;resource&gt;</span>
+            <span style="color:#ff79c6">&lt;directory&gt;</span>src/main/resource(资源目录)<span style="color:#ff79c6">&lt;/directory&gt;</span>
+            <span style="color:#ff79c6">&lt;includes&gt;</span>
+                <span style="color:#ff79c6">&lt;include&gt;</span>**/*.xml<span style="color:#ff79c6">&lt;/include&gt;</span>
+                <span style="color:#ff79c6">&lt;include&gt;</span>**/*.properties<span style="color:#ff79c6">&lt;/include&gt;</span>
+            <span style="color:#ff79c6">&lt;/includes&gt;</span>
+        <span style="color:#ff79c6">&lt;/resource&gt;</span>
+        <span style="color:#ff79c6">&lt;resource&gt;</span>
+            <span style="color:#ff79c6">&lt;directory&gt;</span>src/main/java<span style="color:#ff79c6">&lt;/directory&gt;</span>
+            <span style="color:#ff79c6">&lt;includes&gt;</span>
+                <span style="color:#ff79c6">&lt;include&gt;</span>**/*.properties<span style="color:#ff79c6">&lt;/include&gt;</span>
+                <span style="color:#ff79c6">&lt;include&gt;</span>**/*.xml<span style="color:#ff79c6">&lt;/include&gt;</span>
+            <span style="color:#ff79c6">&lt;/includes&gt;</span>
+        <span style="color:#ff79c6">&lt;/resource&gt;</span>
+    <span style="color:#ff79c6">&lt;/resources&gt;</span>
+<span style="color:#ff79c6">&lt;/build&gt;</span>
+</code></pre></div><h1 id="6-servlet-1">6. Servlet</h1>
+<h2 id="61-servlet简介-1">6.1 Servlet简介</h2>
+<ul>
+<li>Servlet就是sun公司开发的动态web的一门技术</li>
+<li>sun在这些api中提供了一个接口叫做：Servlet，如果你想开发一个servlet程序，只需要完成两个小步骤
+<ul>
+<li>编写一个类实现servlet接口</li>
+<li>把开发好的Java类部署到web服务器中</li>
+</ul>
+</li>
+</ul>
+<p><strong>把实现了servlet接口的Java程序叫做servlet</strong></p>
+<h2 id="62-hello-servlet-1">6.2 Hello Servlet</h2>
+<p>Servlet接口Sun公司有两个默认的实现类：HttpServlet（它继承的GenericServlet），GenericServlet</p>
+<ol>
+<li>
+<p>构建一个Maven项目，删除里面的src目录，以后我们的学习就在这个项目里面建立module（子工程），这个空的工程就是Maven主工程</p>
+<p>在主工程pom中添加servlet API和JSP的依赖</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;dependencies&gt;</span>
+        <span style="color:#6272a4">&lt;!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api --&gt;</span>
+        <span style="color:#ff79c6">&lt;dependency&gt;</span>
+            <span style="color:#ff79c6">&lt;groupId&gt;</span>javax.servlet<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+            <span style="color:#ff79c6">&lt;artifactId&gt;</span>javax.servlet-api<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+            <span style="color:#ff79c6">&lt;version&gt;</span>3.1.0<span style="color:#ff79c6">&lt;/version&gt;</span>
+            <span style="color:#ff79c6">&lt;scope&gt;</span>provided<span style="color:#ff79c6">&lt;/scope&gt;</span>
+        <span style="color:#ff79c6">&lt;/dependency&gt;</span>
+   
+        <span style="color:#6272a4">&lt;!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api --&gt;</span>
+        <span style="color:#ff79c6">&lt;dependency&gt;</span>
+            <span style="color:#ff79c6">&lt;groupId&gt;</span>javax.servlet.jsp<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+            <span style="color:#ff79c6">&lt;artifactId&gt;</span>jsp-api<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+            <span style="color:#ff79c6">&lt;version&gt;</span>2.1<span style="color:#ff79c6">&lt;/version&gt;</span>
+            <span style="color:#ff79c6">&lt;scope&gt;</span>provided<span style="color:#ff79c6">&lt;/scope&gt;</span>
+        <span style="color:#ff79c6">&lt;/dependency&gt;</span>
+    <span style="color:#ff79c6">&lt;/dependencies&gt;</span>
+</code></pre></div></li>
+<li>
+<p>关于maven父子工程的理解</p>
+<p>父项目中会有：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;modules&gt;</span>
+        <span style="color:#ff79c6">&lt;module&gt;</span>Servlet-01<span style="color:#ff79c6">&lt;/module&gt;</span>
+    <span style="color:#ff79c6">&lt;/modules&gt;</span>
+</code></pre></div><p>子项目中会有：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#ff79c6">&lt;parent&gt;</span>
+    <span style="color:#ff79c6">&lt;groupId&gt;</span>com.lee<span style="color:#ff79c6">&lt;/groupId&gt;</span>
+    <span style="color:#ff79c6">&lt;artifactId&gt;</span>webapp-02-Servlet<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
+    <span style="color:#ff79c6">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#ff79c6">&lt;/version&gt;</span>
+  <span style="color:#ff79c6">&lt;/parent&gt;</span>
+//有可能需要在pom中手动填写
+</code></pre></div><p>父项目中的Jar包子项目可以直接使用</p>
+</li>
+</ol>
+<p>构建servlet子工程：主工程文件夹上右键，通过maven建立一个webapp，然后在main文件夹中手动添加Java和resource文件夹</p>
+<ol>
+<li>
+<p>Maven环境优化</p>
+<ol>
+<li>
+<p>修改web.xml修改为最新的</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee
+          http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+         version=&quot;4.0&quot;&gt;
+&lt;/web-app&gt;
+</code></pre></li>
+<li>
+<p>将maven结构搭建完整</p>
+</li>
+</ol>
+</li>
+<li>
+<p>编写一个servlet程序</p>
+<ol>
+<li>
+<p>编写一个普通类</p>
+</li>
+<li>
+<p>实现servlet接口，这里我们直接继承HttpServlet</p>
+<pre><code>import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+      
+public class helloservlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter writer = resp.getWriter();
+        writer.print(&quot;hello servlet&quot;);
+    }
+      
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet(req, resp);
+      //doGet和doPost在此没啥区别，所以调用其中一个就行了，故当调用dopost时，让他去调doget就行了
+    }
+}
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>idea中调出“重写”的快捷键。ctrl+enter然后选择重写</p>
+</blockquote>
+<ol>
+<li>
+<p>编写Servlet映射</p>
+<p>为什么需要映射：我们写的是Java程序，但是需要通过浏览器访问，而浏览器需要连接web服务器，所以我们需要在web中注册我们写的servlet，还需要给他一个浏览器能够访问的路径</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#6272a4">&lt;!--    配制web.xml是Webapp的核心--&gt;</span>
+
+<span style="color:#6272a4">&lt;!--    注册servlet--&gt;</span>
+    <span style="color:#ff79c6">&lt;servlet&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#6272a4">&lt;!--servlet名称（任意写，但要与下面的servlet-mapping相同）--&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-class&gt;</span>com.lee.servlet.helloservlet<span style="color:#ff79c6">&lt;/servlet-class&gt;</span>
+        <span style="color:#6272a4">&lt;!-- 被注册为servlet的Java类--&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet&gt;</span>
+<span style="color:#6272a4">&lt;!--    servlet的请求路径（映射）--&gt;</span>
+    <span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#6272a4">&lt;!--servlet名称（任意写，但要与下面的servlet-mapping相同）--&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+        <span style="color:#6272a4">&lt;!--虚拟路径 在URL框中输入localhost:8080/Servlet_01_war/hello就能找到我的servlet        其中的/Servlet_01_war是本项目默认的Tomcat虚拟路径，也可以修改--&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><ol>
+<li>
+<p>配制Tomcat</p>
+<p>参考5.6</p>
+</li>
+</ol>
+<h2 id="63-servlet原理-1">6.3 Servlet原理</h2>
+<p>Servlet执行原理</p>
+<p><img src="https://img-blog.csdn.net/20170802174007533" alt="img"></p>
+<p>Servlet原理图</p>
+<p><img src="https://img-blog.csdn.net/20170803180252641" alt="img"></p>
+<h2 id="64-mapping问题-1">6.4 Mapping问题</h2>
+<ol>
+<li>一个Servlet可以指定一个映射路径</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><ol>
+<li>一个Servlet可以指定多个映射路径</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+<span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello1<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+<span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello2<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+<span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello3<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><ol>
+<li>默认请求路径（尽量不去用）</li>
+</ol>
+<p>注：会把首页干掉</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/*<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><p>*是通配符</p>
+<ol>
+<li>可以自定义后缀实现请求映射</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>*.dovelee<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><p>注意：*前面不能加任何项目映射路径</p>
+<p>但在访问的时候，只要以*.dovelee结尾，都能访问到，比如123/abcdefg.dovelee</p>
+<ol>
+<li>
+<p>优先级问题</p>
+<p>指定了固有的映射路径优先级最高，如果找不到，则会走默认映射路径（/hello  &gt;   /*）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+<span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>error<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/*<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div></li>
+</ol>
+<h2 id="65-servletcontext-1">6.5 ServletContext</h2>
+<p><img src="https://img2018.cnblogs.com/blog/693744/201907/693744-20190719150852543-1253526915.png" alt=""></p>
+<p>web容器在启动的时候，它会为每个web程序都创建一个对应的ServletContext对象，它代表了每一个web应用：</p>
+<h3 id="1共享数据-1">1.共享数据</h3>
+<p>在一个Servlet中创建的数据，可以通过ServletContext在另一个Servlet中取出</p>
+<ol>
+<li>创建“放数据”的类</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">HelloServlet</span> <span style="color:#8be9fd;font-style:italic">extends</span> HttpServlet <span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+
+        <span style="color:#6272a4">//this.getInitParameter() 初始化参数
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">//this.getServletConfig() Servlet配置
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">//this.getServletContext() Servlet上下文
+</span><span style="color:#6272a4"></span>
+        ServletContext context <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getServletContext</span><span style="color:#ff79c6">();</span>
+
+        String username <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;李智&#34;</span><span style="color:#ff79c6">;</span><span style="color:#6272a4">//数据
+</span><span style="color:#6272a4"></span>        context<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setAttribute</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;username&#34;</span><span style="color:#ff79c6">,</span>username<span style="color:#ff79c6">);</span><span style="color:#6272a4">//将一个数据保存在了ServletContext中，名字为username，值为username
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><ol start="2">
+<li>创建“取数据”的类</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">GetServlet</span> <span style="color:#8be9fd;font-style:italic">extends</span> HttpServlet <span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        ServletContext context <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getServletContext</span><span style="color:#ff79c6">();</span>
+        String username <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">)</span> context<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getAttribute</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;username&#34;</span><span style="color:#ff79c6">);</span>
+
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setContentType</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;text/html&#34;</span><span style="color:#ff79c6">);</span>
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setCharacterEncoding</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;utf-8&#34;</span><span style="color:#ff79c6">);</span>
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getWriter</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">print</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;名字&#34;</span><span style="color:#ff79c6">+</span>username<span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+</code></pre></div><ol start="3">
+<li>配置xml</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;servlet&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-class&gt;</span>com.lee.servlet.HelloServlet<span style="color:#ff79c6">&lt;/servlet-class&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet&gt;</span>
+    <span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>hello<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/hello<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+
+    <span style="color:#ff79c6">&lt;servlet&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>get<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-class&gt;</span>com.lee.servlet.GetServlet<span style="color:#ff79c6">&lt;/servlet-class&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet&gt;</span>
+    <span style="color:#ff79c6">&lt;servlet-mapping&gt;</span>
+        <span style="color:#ff79c6">&lt;servlet-name&gt;</span>get<span style="color:#ff79c6">&lt;/servlet-name&gt;</span>
+        <span style="color:#ff79c6">&lt;url-pattern&gt;</span>/get<span style="color:#ff79c6">&lt;/url-pattern&gt;</span>
+    <span style="color:#ff79c6">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><p>注意：需要先访问“放数据”的类，才能在“取数据”的类中取到数据，否则为null</p>
+<h3 id="2-获取初始化参数">2. 获取初始化参数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;context-param&gt;</span>
+        <span style="color:#ff79c6">&lt;param-name&gt;</span>url<span style="color:#ff79c6">&lt;/param-name&gt;</span>
+        <span style="color:#ff79c6">&lt;param-value&gt;</span>localhost:8080<span style="color:#ff79c6">&lt;/param-value&gt;</span>
+    <span style="color:#ff79c6">&lt;/context-param&gt;</span>
+//写到web.xml中
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ServletDemo1</span> <span style="color:#8be9fd;font-style:italic">extends</span> HttpServlet <span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        ServletContext context <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getServletContext</span><span style="color:#ff79c6">();</span>
+        String url <span style="color:#ff79c6">=</span> context<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getInitParameter</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;url&#34;</span><span style="color:#ff79c6">);</span>
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getWriter</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">print</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><h3 id="3-实现请求转发">3. 实现请求转发</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ServletDemo2</span> <span style="color:#8be9fd;font-style:italic">extends</span> HelloServlet <span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        ServletContext context <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getServletContext</span><span style="color:#ff79c6">();</span>
+        RequestDispatcher requestDispatcher <span style="color:#ff79c6">=</span>  context<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getRequestDispatcher</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/sd1&#34;</span><span style="color:#ff79c6">);</span><span style="color:#6272a4">//转发的请求路径
+</span><span style="color:#6272a4"></span>        requestDispatcher<span style="color:#ff79c6">.</span><span style="color:#50fa7b">forward</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">,</span>resp<span style="color:#ff79c6">);</span><span style="color:#6272a4">//调用forward实现请求转发
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><h3 id="4-读取资源文件">4. 读取资源文件</h3>
+<p>Properties</p>
+<ul>
+<li>在Java目录下新建properties</li>
+<li>在resources目录下新建properties</li>
+</ul>
+<p>发现：都被打包到了target下的classes路径，我们称这个路径为classpath</p>
+<p>思路：需要一个文件流</p>
+<pre><code class="language-properties" data-lang="properties">username=root
+password=123456
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ServletDemo3</span> <span style="color:#8be9fd;font-style:italic">extends</span> HelloServlet<span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        ServletContext context <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getServletContext</span><span style="color:#ff79c6">();</span>
+        InputStream is <span style="color:#ff79c6">=</span> context<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getResourceAsStream</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/WEB-INF/classes/db.properties&#34;</span><span style="color:#ff79c6">);</span> <span style="color:#6272a4">//读取的路径为打包后target文件夹下对应web项目下的路径
+</span><span style="color:#6272a4"></span>        Properties prop <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Properties<span style="color:#ff79c6">();</span>
+        prop<span style="color:#ff79c6">.</span><span style="color:#50fa7b">load</span><span style="color:#ff79c6">(</span>is<span style="color:#ff79c6">);</span><span style="color:#6272a4">//用.load读取properties文件
+</span><span style="color:#6272a4"></span>        String user <span style="color:#ff79c6">=</span> prop<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getProperty</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;username&#34;</span><span style="color:#ff79c6">);</span>
+        String pwd <span style="color:#ff79c6">=</span> prop<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getProperty</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;password&#34;</span><span style="color:#ff79c6">);</span>
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getWriter</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">print</span><span style="color:#ff79c6">(</span>user<span style="color:#ff79c6">+</span><span style="color:#f1fa8c">&#34;:&#34;</span><span style="color:#ff79c6">+</span>pwd<span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><h2 id="66-httpservletreponse">6.6 HttpServletReponse</h2>
+<p>web服务器接收到客户端的http请求，针对这个请求，分别创建一个代表请求的HttpServletRequest对象，代表响应的一个HttpServletReponse</p>
+<ul>
+<li>如果要获取客户端请求过来的参数：找HttpServletRequest</li>
+<li>如果要给客户端相应一些信息：HttpServletReponse</li>
+</ul>
+<h3 id="1-简单分类">1. 简单分类</h3>
+<p>负责向浏览器发送数据的方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#8be9fd;font-style:italic">public</span> ServletOutputStream <span style="color:#50fa7b">getOutputStream</span><span style="color:#ff79c6">()</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException<span style="color:#ff79c6">;</span>
+ <span style="color:#8be9fd;font-style:italic">public</span> PrintWriter <span style="color:#50fa7b">getWriter</span><span style="color:#ff79c6">()</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException<span style="color:#ff79c6">;</span>
+</code></pre></div><p>负责向浏览器发送相应头的方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#6272a4">//因为HttpServletResponse继承了ServletResponse，所以也可以用ServletResponse的方法，如：
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setCharacterEncoding</span><span style="color:#ff79c6">(</span>String charset<span style="color:#ff79c6">);</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setContentLength</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> len<span style="color:#ff79c6">);</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setContentLengthLong</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">long</span> len<span style="color:#ff79c6">);</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setContentType</span><span style="color:#ff79c6">(</span>String type<span style="color:#ff79c6">);</span>
+<span style="color:#6272a4">//HttpServletResponse自己的方法：
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setDateHeader</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">long</span> date<span style="color:#ff79c6">);</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">addDateHeader</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">long</span> date<span style="color:#ff79c6">);</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setHeader</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">,</span> String value<span style="color:#ff79c6">);</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">addHeader</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">,</span> String value<span style="color:#ff79c6">);</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setIntHeader</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> value<span style="color:#ff79c6">);</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">addIntHeader</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> value<span style="color:#ff79c6">);</span>
+<span style="color:#ff79c6">......</span>
+</code></pre></div><p>响应的状态码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> SC_CONTINUE <span style="color:#ff79c6">=</span> 100<span style="color:#ff79c6">;</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> SC_OK <span style="color:#ff79c6">=</span> 200<span style="color:#ff79c6">;</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> SC_MULTIPLE_CHOICES <span style="color:#ff79c6">=</span> 300<span style="color:#ff79c6">;</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> SC_NOT_FOUND <span style="color:#ff79c6">=</span> 404<span style="color:#ff79c6">;</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> SC_INTERNAL_SERVER_ERROR <span style="color:#ff79c6">=</span> 500<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">......</span>
+</code></pre></div><h3 id="2-常见应用">2. 常见应用</h3>
+<ol>
+<li>向浏览器输出消息</li>
+<li>下载文件</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">FileServlet</span> <span style="color:#8be9fd;font-style:italic">extends</span> HttpServlet <span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+<span style="color:#6272a4">//        1. 要获取下载文件的路径
+</span><span style="color:#6272a4"></span>            String realpath <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;/Users/mr.lee/webapp-02-Servlet/response/target/classes/blog.png&#34;</span><span style="color:#ff79c6">;</span>
+<span style="color:#6272a4">//        2. 下载的文件名是什么
+</span><span style="color:#6272a4"></span>            String filename <span style="color:#ff79c6">=</span> realpath<span style="color:#ff79c6">.</span><span style="color:#50fa7b">substring</span><span style="color:#ff79c6">(</span>realpath<span style="color:#ff79c6">.</span><span style="color:#50fa7b">lastIndexOf</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;//&#34;</span><span style="color:#ff79c6">)+</span>1<span style="color:#ff79c6">);</span><span style="color:#6272a4">//十分巧妙！！
+</span><span style="color:#6272a4">//        3. 想办法设置从而让浏览器能够下载支持我们需要的东西
+</span><span style="color:#6272a4"></span>            resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setHeader</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Content-disposition&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;attachment;filename&#34;</span><span style="color:#ff79c6">+</span>filename<span style="color:#ff79c6">);</span>
+<span style="color:#6272a4">//        4. 获取下载文件的输入流
+</span><span style="color:#6272a4"></span>            FileInputStream in <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileInputStream<span style="color:#ff79c6">(</span>realpath<span style="color:#ff79c6">);</span>
+<span style="color:#6272a4">//        5. 创建缓冲区
+</span><span style="color:#6272a4"></span>            <span style="color:#8be9fd">int</span> len <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+            <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> buffer <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[</span>1024<span style="color:#ff79c6">];</span>
+<span style="color:#6272a4">//        6. 获取OutputStream对象
+</span><span style="color:#6272a4"></span>            ServletOutputStream os <span style="color:#ff79c6">=</span> resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getOutputStream</span><span style="color:#ff79c6">();</span>
+<span style="color:#6272a4">//        7. 将FileOutputStream流写入到buffer缓冲区
+</span><span style="color:#6272a4">//        8. 使用OutputStream将缓冲区中的数据输出到客户端
+</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">while</span><span style="color:#ff79c6">((</span>len<span style="color:#ff79c6">=</span>in<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">))&gt;</span>0<span style="color:#ff79c6">){</span>
+                os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">,</span>0<span style="color:#ff79c6">,</span>len<span style="color:#ff79c6">);</span>
+            <span style="color:#ff79c6">}</span>
+            in<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+            os<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><h3 id="3-验证码功能">3. 验证码功能</h3>
+<p>验证怎么来的？</p>
+<ul>
+<li>前端实现</li>
+<li>后端实现，需要用到Java图片类</li>
+</ul>
+<h3 id="4-实现重定向">4. 实现重定向</h3>
+<p>一个web资源B收到客户端A请求后，他会通知客户端A去访问另外一个web资源C，这个过程叫做重定向</p>
+<p>常见场景：用户登录</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">RedirectServlet</span> <span style="color:#8be9fd;font-style:italic">extends</span> HttpServlet <span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">sendRedirect</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/response_war/down&#34;</span><span style="color:#ff79c6">);</span><span style="color:#6272a4">//重定向
+</span><span style="color:#6272a4">//        其实本质上就是以下两步
+</span><span style="color:#6272a4">//        resp.setHeader(&#34;Location&#34;,&#34;/response_war/down&#34;);
+</span><span style="color:#6272a4">//        resp.setStatus(302);
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>面试题：请你聊聊重定向和转发的区别</p>
+<p>相同点：</p>
+<ul>
+<li>页面都会实现跳转</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>请求转发的时候，url不会产生变化     307</li>
+<li>重定向的时候，url地址栏会发生变化    302</li>
+</ul>
+<h2 id="67-httpservletrequest">6.7 HttpServletRequest</h2>
+<p>HttpServletRequest代表客户端的请求，用户通过http协议访问服务器。HTTP请求中的所有信息会被封装到HttpServletRequest类，通过这个HttpServletRequest类的方法，获得客户端的所有信息</p>
+<h3 id="1-获取前端传递的参数">1. 获取前端传递的参数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getParameter</span><span style="color:#ff79c6">(</span>String s<span style="color:#ff79c6">)</span>        String
+req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getParameterValues</span><span style="color:#ff79c6">(</span>String s<span style="color:#ff79c6">)</span>       String<span style="color:#ff79c6">[]</span>
+</code></pre></div><h3 id="2-请求转发">2. 请求转发</h3>
+<h2 id="7-cookiesession">7. Cookie、Session</h2>
+<h3 id="71-会话">7.1 会话</h3>
+<p>会话：用户打开了一个浏览器，点击了很多超链接，访问多个web资源，关闭浏览器，这个过程可以称之为会话</p>
+<p>有状态会话：一个客户端访问过服务端，下次再访问，服务端知道客户端曾经来过</p>
+<p>一个网站，怎么证明你来过？</p>
+<p>客户端                      服务端</p>
+<ol>
+<li>服务端给客户端一个信件，客户端下次访问服务端带上信件即可 ：cookie</li>
+<li>服务器登记你来过了，下次客户端来的时候匹配客户端 ：Session</li>
+</ol>
+<h2 id="72-保存会话的两种技术">7.2 保存会话的两种技术</h2>
+<p>Cookie：</p>
+<p>客户端技术（通过请求响应）</p>
+<p>Session：</p>
+<p>服务器技术，利用这个技术可以保存用户的会话信息，我们可以把信息和数据放在Session中</p>
+<p>常见场景：网站登录后，下次不用再登陆了</p>
+<h2 id="73-cookie">7.3 Cookie</h2>
+<ol>
+<li>从请求中拿到cookie信息</li>
+<li>服务器响应给客户端cookie</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> Cookie<span style="color:#ff79c6">[]</span> cookies <span style="color:#ff79c6">=</span> req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getCookies</span><span style="color:#ff79c6">();</span><span style="color:#6272a4">//获得cookie
+</span><span style="color:#6272a4"></span> cookie<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getName</span><span style="color:#ff79c6">();</span><span style="color:#6272a4">//获得cookie中的key
+</span><span style="color:#6272a4"></span> cookie<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getValue</span><span style="color:#ff79c6">();</span><span style="color:#6272a4">//获得cookie中的value
+</span><span style="color:#6272a4"></span> Cookie cookie <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Cookie<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Lastlogintime&#34;</span><span style="color:#ff79c6">,</span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">currentTimeMillis</span><span style="color:#ff79c6">()+</span><span style="color:#f1fa8c">&#34;&#34;</span><span style="color:#ff79c6">);</span><span style="color:#6272a4">//新建一个cookie
+</span><span style="color:#6272a4"></span> cookie<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setMaxAge</span><span style="color:#ff79c6">(</span>24<span style="color:#ff79c6">*</span>60<span style="color:#ff79c6">*</span>60<span style="color:#ff79c6">);</span><span style="color:#6272a4">//设置cookie有效期
+</span><span style="color:#6272a4"></span> resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addCookie</span><span style="color:#ff79c6">(</span>cookie<span style="color:#ff79c6">);</span><span style="color:#6272a4">//响应给客户端一个cookie
+</span></code></pre></div><p>cookie一般会保存在本地的用户目录的appdata下</p>
+<p>一个网站的cookie是否存在上限？</p>
+<ul>
+<li>一个cookie只能保存一个信息</li>
+<li>一个web站点（服务器）可以给浏览器发送多个cookie，上限大概为300个</li>
+<li>一个web站点（服务器）最多可以存放20个cookie</li>
+<li>cookie大小有限制：4KB</li>
+</ul>
+<p>删除cookie：</p>
+<ul>
+<li>不设置有效期，关闭浏览器自动失效</li>
+<li>新建一个与要删除的cookie完全相同的Javaclass，然后设置有效期时间为0，再注册servlet，设此为/c3。当访问/c2时产生cookie，再访问/c3，之后，/c2中的cookie就被删除了</li>
+</ul>
+<h2 id="74-session重点">7.4 Session（重点）</h2>
+<p>什么是Session：</p>
+<ul>
+<li>服务器会给每一个用户（浏览器）创建一个Session对象</li>
+<li>一个Session独占一个浏览器，只要浏览器没有关闭，这个Session就存在</li>
+<li>用户登陆之后，整个网站都可以 &ndash;&gt;应用：保存用户的信息；保存购物车信息</li>
+<li>不同用户的Session在服务器中是用SessionID进行区分的，每个用户的Session唯一</li>
+</ul>
+<p>Session和Cookie的区别</p>
+<ul>
+<li>cookie是把用户的数据写给用户的浏览器，浏览器保存（可以保存多个）</li>
+<li>Session把用户的数据写到用户独占的Session中，服务器端保存（保存重要的信息，减少服务器资源浪费）</li>
+<li>Session对象由服务器创建</li>
+</ul>
+<p>使用场景：</p>
+<ul>
+<li>保存一个用户的登录信息</li>
+<li>购物车信息</li>
+<li>在整个网站中经常会使用的数据，我们将它放到Session中</li>
+</ul>
+<p>使用Session</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Sessiondemo01</span> <span style="color:#8be9fd;font-style:italic">extends</span> HttpServlet <span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">//解决乱码问题
+</span><span style="color:#6272a4"></span>        req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setCharacterEncoding</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;utf-8&#34;</span><span style="color:#ff79c6">);</span>
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setCharacterEncoding</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;utf-8&#34;</span><span style="color:#ff79c6">);</span>
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setContentType</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;text/html;charset=utf-8&#34;</span><span style="color:#ff79c6">);</span>
+
+        <span style="color:#6272a4">//得到Session
+</span><span style="color:#6272a4"></span>        HttpSession session <span style="color:#ff79c6">=</span> req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getSession</span><span style="color:#ff79c6">();</span>
+
+        <span style="color:#6272a4">//给Session存东西
+</span><span style="color:#6272a4"></span>        session<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setAttribute</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;name&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;lee&#34;</span><span style="color:#ff79c6">);</span>
+
+        <span style="color:#6272a4">//获取Session的ID
+</span><span style="color:#6272a4"></span>        String id <span style="color:#ff79c6">=</span> session<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getId</span><span style="color:#ff79c6">();</span>
+
+        <span style="color:#6272a4">//判断Session是否为新创建的
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span><span style="color:#ff79c6">(</span>session<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isNew</span><span style="color:#ff79c6">()){</span>
+            resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getWriter</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Session创建成功，ID：&#34;</span><span style="color:#ff79c6">+</span>id<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span><span style="color:#ff79c6">else</span><span style="color:#ff79c6">{</span>
+            resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getWriter</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Session已经存在，ID：&#34;</span><span style="color:#ff79c6">+</span>id<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span>
+    <span style="color:#ff79c6">}</span>
+
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doPost</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        <span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">,</span> resp<span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>得到Session</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Sessiondemo02</span> <span style="color:#8be9fd;font-style:italic">extends</span> HttpServlet <span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">//解决乱码问题
+</span><span style="color:#6272a4"></span>        req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setCharacterEncoding</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;utf-8&#34;</span><span style="color:#ff79c6">);</span>
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setCharacterEncoding</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;utf-8&#34;</span><span style="color:#ff79c6">);</span>
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setContentType</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;text/html;charset=utf-8&#34;</span><span style="color:#ff79c6">);</span>
+
+        <span style="color:#6272a4">//得到Session
+</span><span style="color:#6272a4"></span>        HttpSession session <span style="color:#ff79c6">=</span> req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getSession</span><span style="color:#ff79c6">();</span>
+
+        String name <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">)</span> session<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getAttribute</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;name&#34;</span><span style="color:#ff79c6">);</span>
+
+        resp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getWriter</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">);</span>
+
+    <span style="color:#ff79c6">}</span>
+
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doPost</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        <span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">,</span> resp<span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>手动注销Session</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Sessiondemo03</span> <span style="color:#8be9fd;font-style:italic">extends</span> HttpServlet
+<span style="color:#ff79c6">{</span>
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        HttpSession session <span style="color:#ff79c6">=</span> req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getSession</span><span style="color:#ff79c6">();</span>
+        <span style="color:#6272a4">//手动注销Session
+</span><span style="color:#6272a4"></span>        session<span style="color:#ff79c6">.</span><span style="color:#50fa7b">removeAttribute</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;name&#34;</span><span style="color:#ff79c6">);</span>
+        session<span style="color:#ff79c6">.</span><span style="color:#50fa7b">invalidate</span><span style="color:#ff79c6">();</span>
+
+    <span style="color:#ff79c6">}</span>
+
+    @Override
+    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">doPost</span><span style="color:#ff79c6">(</span>HttpServletRequest req<span style="color:#ff79c6">,</span> HttpServletResponse resp<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> ServletException<span style="color:#ff79c6">,</span> IOException <span style="color:#ff79c6">{</span>
+        <span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">doGet</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">,</span> resp<span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>Session自动过期</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#6272a4">&lt;!--    设置Session默认的失效时间--&gt;</span>
+    <span style="color:#ff79c6">&lt;session-config&gt;</span>
+<span style="color:#6272a4">&lt;!--        1分钟后Session自动失效，以分钟为单位--&gt;</span>
+        <span style="color:#ff79c6">&lt;session-timeout&gt;</span>1<span style="color:#ff79c6">&lt;/session-timeout&gt;</span>
+    <span style="color:#ff79c6">&lt;/session-config&gt;</span>
+</code></pre></div><h1 id="8-mvc三层架构">8. MVC三层架构</h1>
+<p>什么是MVC：Model View Controller 模型、视图、控制器</p>
+<h2 id="81早期架构">8.1早期架构</h2>
+<p>控制器Controller：Servlet</p>
+<ol>
+<li>接收用户的请求</li>
+<li>响应给客户端内容</li>
+<li>重定向或者转发</li>
+</ol>
+<p>视图层View：JSP</p>
+<ol>
+<li>
+<p>展示数据</p>
+</li>
+<li>
+<p>提供可以供我们操作的请求</p>
+</li>
+</ol>
+<blockquote>
+<p>Servlet和JSP都可以写JAVA代码:为了易于维护和使用：</p>
+<p>Servlet专注于处理请求，以及控制视图跳转（重定向或者转发）</p>
+<p>JSP专注于显示数据</p>
+</blockquote>
+<p>早期用户直接访问控制层，控制层就可以直接操作数据库</p>
+<p>servlet&ndash;CRUD&ndash;&gt;数据库      （CRUD：增删改查）</p>
+<p>弊端：程序十分臃肿，不利于维护</p>
+<p>servlet的代码中：处理请求、响应、视图跳转（重定向）、处理JDBC、处理业务代码</p>
+<h2 id="82-mvc三层架构">8.2 MVC三层架构</h2>
+<p>Model</p>
+<ul>
+<li>业务处理：业务逻辑（Service）</li>
+<li>数据持久层：增删改查（Dao）</li>
+</ul>
+<p>View</p>
+<ul>
+<li>展示数据</li>
+<li>提供连接发起Servlet请求（a，form，img等标签）</li>
+</ul>
+<p>Controller（Servlet）</p>
+<ul>
+<li>接收用户请求:（req：请求参数，Session信息&hellip;&hellip;）</li>
+<li>交给业务层处理对应的代码</li>
+<li>控制视图的跳转</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/58317994/87228047-4c113a00-c3d1-11ea-83ff-222076364827.jpg" alt=""></p>
+<h1 id="11-filter">11. Filter</h1>
+<p>Filter：过滤器，用来过滤网站的数据</p>
+<ul>
+<li>处理中文乱码</li>
+<li>登录验证</li>
+</ul>
+<ol>
+<li>导包</li>
+<li>实现Filter接口，重写对应的方法    核心chain.doFilter</li>
+<li>在web.xml中配置filter</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20200428190203933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2w4Mjc4OTM2Mjg=,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>多个过滤器如何工作？</p>
+<p><img src="https://img-blog.csdnimg.cn/20200428191853193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2w4Mjc4OTM2Mjg=,size_16,color_FFFFFF,t_70" alt=""></p>
+
 
                 
                 
