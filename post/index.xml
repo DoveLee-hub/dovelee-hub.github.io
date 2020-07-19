@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Mr.Lee&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dovelee-hub.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MySQL</title>
+      <link>https://dovelee-hub.github.io/post/mysql/</link>
+      <pubDate>Sun, 19 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dovelee-hub.github.io/post/mysql/</guid>
+      <description>1.初识MySQL 1. 基本的命令行操作 mysql -uroot -p --连接数据库 update mysql.user set authentication_string=password(&amp;#39;123456&amp;#39;) where user=&amp;#39;root&amp;#39; and Host = &amp;#39;localhost&amp;#39;;--修改用户密码 flush privileges; --刷</description>
+    </item>
     
     <item>
       <title>JavaWeb</title>
