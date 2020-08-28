@@ -215,7 +215,7 @@
                 
                 <h1 id="理解jvm虚拟机">理解JVM虚拟机</h1>
 <h2 id="1-java是怎么实现从源代码到机器码的">1. Java是怎么实现从源代码到机器码的</h2>
-<p><img src="https://img2018.cnblogs.com/blog/595137/201812/595137-20181212194443807-900872025.png" alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/58317994/91581651-4a033a80-e981-11ea-9fea-7fe39b5d8405.jpg" alt=""></p>
 <p>字节码与机器码：</p>
 <p>机器码就是说计算机能读懂的代码,简单点说就是给计算机执行的二进制代码.
 字节码,是JAVA语言专有的,它是让JVM来执行的二进制代码
@@ -229,7 +229,7 @@
 <li>第四阶段：分析与字节码生成。根据上面三阶段的分析，我们的字节码就可以生成了，最终输出为class文件</li>
 </ul>
 <h3 id="12-jit编译器字节码到机器码">1.2 JIT编译器（字节码到机器码）</h3>
-<p><img src="https://img2018.cnblogs.com/blog/595137/201812/595137-20181212194503259-888638210.png" alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/58317994/91581626-3fe13c00-e981-11ea-923c-43fda51bf522.jpg" alt=""></p>
 <p>由上图可知，如果我们得到了字节码之后，想要运行程序，其实有两种选择</p>
 <ol>
 <li>
@@ -341,8 +341,8 @@ Inside Java HotSpot VM, there are actually two separate JIT compiler modes, whic
 <p>​	Java堆根据对象存活的时间不同，将其分为了<strong>年轻代</strong>、<strong>老年代</strong>两个区域，年轻代还进一步被划分为了Eden区，From Survivor 0、To Surviver 1区。</p>
 <p>​	<em>在Java8之前，堆中还有永久代，但是在Java8中，把存放元数据的永久内存从堆内存移到了本地内存中，叫做元空间（Metaspace）</em></p>
 <p>​	<em>再补充一点：永久代在Java7之前就是方法区，后来在1.7中为了“去永久代”，将原本放在方法区中的静态变量，字符串常量池等移到了堆内存。后来在1.8又移到了本地内存</em></p>
-<p>​	<img src="https://img2020.cnblogs.com/blog/1828752/202004/1828752-20200403203500814-314521655.png" alt=""></p>
-<p>​	<img src="https://img2018.cnblogs.com/blog/595137/201901/595137-20190103103329413-247778313.png" alt=""></p>
+<p>​	<img src="https://user-images.githubusercontent.com/58317994/91581597-322bb680-e981-11ea-8e5f-0a049be7780c.jpg" alt=""></p>
+<p>​	<img src="https://user-images.githubusercontent.com/58317994/91581541-20e2aa00-e981-11ea-99ff-cd400de703e0.jpg" alt=""></p>
 <pre><code>当有对象需要进行内存分配时，它将永远被优先分配到年轻代的Eden区，当Eden区内存空间不足时，JVM会启动垃圾回收，此时Eden区中没有被引用的对象的内存就会被回收，而一些存活时间较长的对象则会进入老年代。
 </code></pre>
 <p>​	<strong>那如何判断这个对象要不要进入老年代呢？</strong></p>
